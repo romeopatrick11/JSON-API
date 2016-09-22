@@ -22,9 +22,8 @@ Nymi-enabled applications (NEAs) written with SDK 3.1 must be updated to account
 When an `onFoundChange` `after` state of any value other than `Found::Authenticated` is received, the NEA must stop attempting any provision-specific actions.
 * The `onPresenceChange` notification is triggered when the *presence* state of a Nymi Band changes. Presence indicates whether a Bluetooth advertisement has been received from the Nymi Band and how recently. Therefore, the `authenticated` attribute of the `onPresenceChange` notification may indicate an unauthenticated Nymi Band, even if the Nymi Band then immediately authenticates. <br>
 In order to properly detect a newly-authenticated Nymi Band, the NEA should rely on the `onFoundChange` callback.
+
+### Bluetooth Connectivity
+
 * An issue exists that may occur on some OS X machines that may cause Bluetooth events to not be seen by the SDK. To detect if this issue has occurred: open the `ncl.log` file and look for entries such as `handle 0 ignored cmd 00 00 00 00`. The Nymulator will work, but Nymi Bands will fail to respond.
-
-
-
-
 
