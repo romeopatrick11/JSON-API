@@ -1,0 +1,214 @@
+<h1 id="sample-app-walkthrough">Sample App Walkthrough</h1>
+
+<p>The Nymi API (NAPI) 4.0 runs as an in-process static library. To demonstrate the functionality exposed through NAPI, we have provided a sample application (NapiCppWrapper). The sample app is a Nymi-enabled application (NEA) written in C++, over a wrapper layer that provides a C++ interface to NAPI. The wrapper layer handles most of the lower level asynchronous message passing to and from NAPI.</p>
+
+<p>In the sample app, the NEA is represented by the <code>main.cpp</code> file. This file (the NEA) consumes the wrapper in order to interact with the API. The wrapper layer is a resuable component that you can use or modify for writing your own NEA. For more information, see <a href="#NapiCppWrapper">NapiCppWrapper</a> below. The sample app has a command-line interface for demonstrating input and output of commands. You can use the sample app with either the Nymulator (Nymi Band emulator) or a physical Nymi Band.</p>
+
+<p>Download the SampleApp and wrapper from GitHub <a href="http://github.com/Nymi/SampleApps">here</a>. Both are included in the NapiCppWrapper download.</p>
+
+<h2 id="sample-app-pre-requisites">Sample App Pre-requisites</h2>
+
+<p>Before you attempt to run the sample app, make sure you have:</p>
+
+<ol>
+  <li>Clasped and authenticated to your Nymi Band with the Nymi Band app. The Nymi Band app is available from Google Play and the App Store.</li>
+  <li>Followed the <a href="#developer-quick-start">Developer Quick Start</a> for your platform, including downloading the SDK and sample app packages. This should take about 10 minutes.</li>
+</ol>
+
+<h2 id="files-created-by-napi">Files Created by NAPI</h2>
+
+<p>When the Nymi API process runs, it creates a number of files in the directory containing the project file.</p>
+
+<p>The API creates log files with the extension <code>.log</code>. These are used as a diagnostic tool.</p>
+
+<p>The file <code>provisions.json</code> holds the information pertinent to all provisioned Nymi Bands. You can remove provisions through the API. This file is written to the directory that the wrapper or NAPI is initialized to.</p>
+
+<p><strong>Note:</strong> Manually editing <code>provisions.json</code> is strongly discouraged. Do not attempt to parse this file in your NEA: the contents and layout of the file are officially undocumented because this file changes as features are added. All actionable information contained in the file is available through the API.</p>
+
+<h2 id="sample-app-commands">Sample App Commands</h2>
+
+<p>The sample app demonstrates the functions of NAPI, including how to provision a Nymi Band, and how to create and retrieve cryptographic assets.</p>
+
+<p>To review the commands and their usage while running the sample app, type <code>help</code> on the command-line.</p>
+
+<p><em>Note:</em> In all commands, <code>i</code> is the index number of the Nymi Band in <code>std::vector&lt;NymiProvision&gt; bands</code>.
+<br /></p>
+<table>
+	<tr>
+		<td colspan="2"><strong>Provisioning Commands</strong></td>
+	</tr>
+	<tr>
+		<td><code>provision-start</code></td>
+		<td> Enable provisioning of Nymi Bands</td>
+	</tr>
+	<tr>
+		<td><code>provision-stop</code></td><td> Disable provisioning of Nymi Bands</td>
+	</tr>
+	<tr>
+		<td><code>accept [+|-]{5}</code></td>
+		<td> Accept a provisioning pattern. Pattern string has length 5, composed of '+' (LED on) or '-' (LED off). Example: <code>accept +----</code> to accept a pattern where only the first LED is on.</td>
+	</tr>
+	<tr>
+		<td><code>provision-getall</code></td>
+		<td> Get a list of all bands that are provisioned to this NEA.</td>
+	</tr>
+	<tr>
+		<td><code>provision-gethere</code></td>
+		<td> Get a list of all bands that are provisioned to this NEA AND are present. </td>
+	</tr>
+	<tr>
+		<td><code>delete-prov i</code></td>
+		<td> Revoke (delete) the provision for Nymi Band with index <code>i</code></td>
+	</tr>
+</table>
+
+<p><br /></p>
+
+<table>
+	<tr>
+		<td colspan="2"><strong>Cryptographic Commands</strong></td>
+	</tr>
+	<tr>
+		<td><code>get-random i</code></td>
+		<td>Get a random number from Nymi Band <code>i</code>.</td>
+	</tr>
+	<tr>
+		<td><code>get-signature i</code></td>
+		<td>Get the signature of a message from Nymi Band <code>i</code>. Note that the message is hard-coded in the sample app.</td>
+	</tr>
+	<tr>
+		<td><code>create-sk i g</code></td>
+		<td>Create a symmetric key on Nymi Band <code>i</code>. If the key is guarded, key retrieval requires the user to double-tap. Guarded: <code>g=1</code>. Unguarded: <code>g=0</code>.</td>
+	</tr>
+	<tr>
+		<td><code>get-sk i</code></td>
+		<td>Get the symmetric key that was previously created on Nymi Band <code>i</code>.</td>
+	</tr>
+	<tr>
+		<td><code>delete-sk i</code></td>
+		<td>Delete the symmetric key previously created on Nymi Band <code>i</code>.</td>
+	</tr>
+	<tr>
+		<td><code>create-totp i g</code> </td>
+		<td>Register a TOTP on Nymi Band <code>i</code>. Note that the TOTP is hard-coded in the sample app. If the TOTP is guarded, retrieval requires the user to double-tap. Guarded: <code>g=1</code>. Unguarded: <code>g=0</code>.</td>
+	</tr>
+	<tr>
+		<td><code>get-totp i</code></td>
+		<td>Retrieve the TOTP token from Nymi Band <code>i</code></td>
+	</tr>
+	<tr>
+		<td><code>delete-totp i</code></td>
+		<td>Delete the TOTP registered on Nymi Band <code>i</code></td>
+	</tr>
+</table>
+<p><br />
+Additional commands for enabling notifications from the API are available. These are described in the next section.</p>
+
+<h2 id="napicppwrapper">NapiCppWrapper</h2>
+
+<p>NapiCppWrapper is the wrapper layer of the sample app. The wrapper layer is a resuable component that you can use or modify for writing your own Nymi-enabled App (NEA).</p>
+
+<p>The public functions of the Nymi API (NAPI) that are used by the wrapper are defined in <code>NymiApi.h</code> and <code>NymiProvision.h</code>. The Listener class waits for and receives messages from NAPI, then calls the appropriate NEA callback.</p>
+
+<aside class="notice"> 
+This walkthrough assumes that you understand the basic process of installing, configuring, and running the Nymi API and sample app/NapiCppWrapper. These instructions are provided in the Developer Quick Start for your platform. 
+</aside>
+
+<h3 id="about-this-walkthrough">About this walkthrough</h3>
+
+<p>In this walkthrough, all examples are presented in the same format:</p>
+
+<ol>
+  <li>The command to run (as an end-user) on the NapiCppWrapper command-line to initiate some operation (for example, to get a random number from the Nymi Band).</li>
+  <li>The relevant function to call in NapiCppWrapper, that initiates the same operation with NAPI.</li>
+  <li>Definition of any input or output requirements.</li>
+  <li>Explanation of the associated callback.</li>
+</ol>
+
+<h2 id="before-you-begin">Before You Begin</h2>
+
+<p>Optional: To change the name of your sample app:</p>
+
+<ol>
+  <li>Open the <code>config.json</code> file.</li>
+  <li>Change the value of <code>neaName</code>. The default value is “NapiCppWrapper”.</li>
+  <li>Save and close the file.</li>
+</ol>
+
+<p>Example of the <code>config.json</code> file:</p>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"neaName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"NapiCppWrapper"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sigAlgorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"NIST256P"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The <code>sigAlgorithm</code> property specifies the signing algorithm that is used. The default is NIST256P. The only other supported algorithm is <code>SECP256K</code>.</p>
+
+<h2 id="initialize-napi">Initialize NAPI</h2>
+
+<p>Before an NEA can send commands to the Nymi Band, it must first initialize the API. In NapiCppWrapper, initialization parameters are sent to the API in the call to <code>NymiApi::getNymiApi</code>.</p>
+
+<p>The main C++ wrapper class (<code>NymiApi.h</code>) follows the singleton pattern. The process of constructing an instance of the wrapper also initializes NAPI.</p>
+
+<p>Public function defined in <code>NymiApi.h</code>:</p>
+
+<pre class="highlight cpp"><code><span class="k">static</span> <span class="n">NymiApi</span> <span class="o">*</span><span class="n">getNymiApi</span><span class="p">(</span><span class="n">nymi</span><span class="o">::</span><span class="n">ConfigOutcome</span> <span class="o">&amp;</span><span class="n">initResult</span><span class="p">,</span> <span class="n">errorCallback</span> <span class="n">onError</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">rootDirectory</span><span class="p">,</span> <span class="n">nymi</span><span class="o">::</span><span class="n">LogLevel</span> <span class="n">log</span> <span class="o">=</span> <span class="n">nymi</span><span class="o">::</span><span class="n">LogLevel</span><span class="o">::</span><span class="n">normal</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nymulatorPort</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">nymulatorHost</span> <span class="o">=</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+<p><br />
+The function takes the following initialization parameters:<br /></p>
+<table>
+	<tr>
+		<td><b>Parameter</b></td>
+		<td><b>Values</b></td>
+	</tr>
+	<tr>
+		<td><code>initResult</code><br /></td>
+		<td>The result of the initialization, returned by NAPI.<br />
+		<code>initResult</code> can have one of the following values:<br /><br />
+		<code>okay</code><br />
+		<code>failedToInit</code><br />
+		<code>configurationFileNotFound</code><br />
+		<code>configurationFileNotReadable</code><br />
+		<code>configurationFileNotParsed</code><br /><br />
+		A status of <code>okay</code> indicates that NAPI is correctly initialized. 
+		All other values indicate that the initialization failed.</td>
+	</tr>
+	<tr>
+		<td><code>onError</code><br /></td>
+		<td>A mandatory error-handling callback.<br />
+		Handles general errors that are not specfic to the Nymi Band or NapiCppWrapper. The simplest implementation would be to print the error string. </td>
+	</tr>
+	<tr>
+		<td><code>rootDirectory</code><br /></td>
+		<td>Defines the location of the config and provision files.<br />
+		Example: "." = use this directory. <br />
+		You can specify a different directory.</td>
+	</tr>
+	<tr>
+		<td><code>LogLevel</code><br /></td>
+		<td>Possible values:<br />
+		normal<br />
+		info<br />
+		debug<br />
+		verbose<br />
+		</td>
+	</tr>
+	<tr>
+		<td><code>nymulatorPort</code><br /></td>
+		<td>Default value is: 9088 for the Nymulator.<br />
+		To connect to a physical Nymi Band on Windows, set <code>nPort</code> to: 9089. <br />
+		On OS X, if you are not using the Nymulator, the port number is ignored. </td>
+	</tr>
+	<tr>
+		<td><code>nymulatorHost</code><br /></td>
+		<td>Example: "127.0.0.1"</td>
+	</tr>
+</table>
+
+<p><br /><br />
+The Listener class waits for a JSON message from NAPI. When a message is detected, the Listener tests for a well-constructed JSON object, then passes the JSON message to the appropriate handler. 
+<br /><br /></p>
+
+<p>After NAPI is initialized, you can <a href="#provision-a-nymi-band">provision</a> and <a href="#authenticating-a-nymi-band">authenticate</a> a Nymi Band, and use the <a href="#actions">actions</a>, such as generating random numbers or TOTP tokens.</p>
+

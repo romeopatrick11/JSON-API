@@ -1,0 +1,1396 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Nymi API JSON Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+	</style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="json json_index" data-languages="[&quot;json&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/nymidev.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">JSON</a>
+              <a href="#" data-language-name="python">Python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc-footer2">
+		<ul class="toc-footer2">
+			<li id="link-main"><a href="http://downloads.nymi.com/sdkDoc/latest/index.html">Introduction</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/quickstart/">Developer Quick Start</a></li>
+			<li id="link-overview"><a href="http://downloads.nymi.com/sdkDoc/latest/overview/">Nymi API Overview</a></li>
+			<li id="link-json"><a href="http://downloads.nymi.com/sdkDoc/latest/json/">NAPI JSON Examples</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/background/">Nymi Background Concepts</a></li>
+		</ul>
+      </div>
+	  <div id="toc">
+	  </div>
+        <ul class="toc-footer">
+            <li><a href='https://support.nymi.com/hc/en-us/community/topics/'>Community</a></li>
+            <li><a href='http://www.nymi.com/dev/'>Developer Home</a></li>
+            <li><a href='../jsonreference/'>NAPI JSON Reference</a></li>
+            <li><a href='../napi-cpp/'>NAPI C++ Reference</a></li>
+            <li><a href='../napi-c/'>NAPI C Reference</a></li>
+        </ul>
+    </div>
+     <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="json-request-and-response-examples">JSON Request and Response Examples</h1>
+
+<p>The following examples show a typical JSON request to the Nymi API and any response that returned for that request. These requests may be static or have variable components. Any variables are described in the individual section following the request or response JSON code. All response examples describe a successful event. Error messages are of a standard format that varies by request but always has a human-readable component.</p>
+
+<p>The Python examples shown below are taken from the <code>apy</code> sample app. Download or clone <code>apy</code> <a href="http://github.com/Nymi/SampleApps/Python/">here</a>.</p>
+
+<p>The following JSON keys are commonly used across multiple requests/responses:</p>
+
+<p>“<strong>pid</strong>”: This field always represents the provision ID of a specific band. It is a 32-character hex code representing a single provisioned band. During the lifetime of the band this will never change, but if the band is de-provisioned and re-provisioned a new <code>pid</code> will be generated.</p>
+
+<p>“<strong>path</strong>”: A REST-like path to a specific operation.</p>
+
+<p>“<strong>exchange</strong>”: In some objects this is a static field. In operations that require tying a specific request to a specific response, the exchange is used as a unique identifier of the request. This can be any specifier an NEA developer chooses. In the Nymi sample applications, the exchange is almost always a random number + a fixed string + the <code>pid</code> of the Nymi Band to which the request has been made.</p>
+
+<p><strong>Note:</strong> The <code>operation</code> field available in NAPI 4.0 has been removed from JSON exchanges in NAPI 4.1.</p>
+
+<h2 id="configure-and-start-napi">Configure and Start NAPI</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="err">API</span><span class="w"> </span><span class="err">ConfigOutcome</span><span class="w"> </span><span class="err">configure(</span><span class="w"> </span><span class="err">const</span><span class="w"> </span><span class="err">char*</span><span class="w"> </span><span class="err">neaName,</span><span class="w">
+    </span><span class="err">const</span><span class="w"> </span><span class="err">char*</span><span class="w"> </span><span class="err">logDirectory,</span><span class="w">
+    </span><span class="err">const</span><span class="w"> </span><span class="err">char*</span><span class="w"> </span><span class="err">provisions</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"{}"</span><span class="err">,</span><span class="w">
+    </span><span class="err">LogLevel</span><span class="w"> </span><span class="err">logLevel</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LogLevel::normal,</span><span class="w">
+    </span><span class="err">int</span><span class="w"> </span><span class="err">port</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">-1</span><span class="err">,</span><span class="w">
+    </span><span class="err">const</span><span class="w"> </span><span class="err">char*</span><span class="w"> </span><span class="err">host</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="err">);</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">configure</span><span class="p">(</span>
+	<span class="n">nea_name</span><span class="p">,</span>
+	<span class="n">log_directory</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span>
+	<span class="n">provisions</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">log_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+	<span class="n">port</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+	<span class="n">host</span><span class="o">=</span><span class="s">''</span>
+<span class="p">):</span>
+</code></pre>
+
+<table>
+<tr><th>Input Parameter </th><th> Description</th></tr>
+<tr><td>neaName </td><td> Name of this NEA (used when provisioning).</td></tr>
+<tr><td>logDirectory </td><td> Path to a directory that will contain log files.</td></tr>
+<tr><td>provisions </td><td> The provisions data saved by previous runs of the NEA.</td></tr>
+<tr><td>logLevel </td><td> The log level to use (see [napi::LogLevel](../jsonreference/)).</td></tr>
+<tr><td>port </td><td> The default port for networked Nymi Bands (on Windows), or the Nymulator.</td></tr>
+<tr><td>host </td><td> The default host for networked Nymi Bands (on Windows), or the Nymulator.</td></tr>
+</table>
+
+<p>For most NEAs the default arguments are correct, so the call would be similar to <code>napi::configure("root-directory-path");</code>.</p>
+
+<p>The special host value of <code>""</code> is treated as <code>"127.0.0.1"</code>. The special port value of <code>-1</code> will choose the port depending on platform (OS X or Windows) and libary (native or networked).</p>
+
+<p>The value of <code>provisions</code> should be the same as the last saved value, or empty if it is the first run.</p>
+
+<p>To restart NAPI, call <code>napi::terminate()</code> followed by another call to <code>napi::configure</code>.</p>
+
+<p>Note: If there are operations in progress when terminate() is called, there may be a delay of up to 30 seconds before it completes.</p>
+
+<aside class="warning">NEAs on Windows OS **must** call napi::terminate() before exiting. If napi::terminate() is not called before the NEA exits, the dynamic libraries will crash on unload. </aside>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight python"><code><span class="o">//</span> <span class="n">This</span> <span class="n">example</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">non</span><span class="o">-</span><span class="n">blocking</span> <span class="n">napi</span><span class="p">::</span><span class="n">try_get</span> <span class="n">variant</span> <span class="n">to</span> <span class="n">get</span> <span class="n">a</span> <span class="n">response</span> <span class="kn">from</span> <span class="nn">NAPI.</span> <span class="err">
+
+</span><span class="nn">def</span> <span class="nn">get</span><span class="err">():
+</span>	<span class="nn">max</span><span class="err">=256
+</span>	<span class="nn">buffer</span><span class="err">=</span><span class="nn">ctypes.create_string_buffer</span><span class="err">(</span><span class="nn">max</span><span class="err">)
+</span>	<span class="nn">len</span><span class="err">=</span><span class="nn">ctypes.c_longlong</span><span class="err">()
+</span>	<span class="nn">len_ptr</span><span class="err">=</span><span class="nn">ctypes.cast</span><span class="err">(</span><span class="nn">ctypes.addressof</span><span class="err">(</span><span class="nn">len</span><span class="err">),</span> <span class="nn">ctypes.POINTER</span><span class="err">(</span><span class="nn">ctypes.c_longlong</span><span class="err">))
+</span>	<span class="nn">while</span> <span class="nn">True</span><span class="err">:
+</span>		<span class="nn">r</span><span class="err">=</span><span class="nn">_napi.napiTryGet</span><span class="err">(</span><span class="nn">buffer</span><span class="err">,</span> <span class="nn">max</span><span class="err">,</span> <span class="nn">len_ptr</span><span class="err">)
+</span>		<span class="nn">if</span> <span class="nn">len.value</span><span class="err">==0:</span> <span class="nn">return</span><span class="err">
+</span>		<span class="nn">if</span> <span class="nn">len.value</span><span class="err">&gt;</span><span class="nn">max</span><span class="err">:
+</span>			<span class="nn">max</span><span class="err">=</span><span class="nn">len.value</span><span class="err">
+</span>			<span class="nn">buffer</span><span class="err">=</span><span class="nn">ctypes.create_string_buffer</span><span class="err">(</span><span class="nn">max</span><span class="err">)
+</span>			<span class="nn">continue</span><span class="err">
+</span>		<span class="nn">if</span> <span class="nn">r</span><span class="err">:</span> <span class="nn">raise</span> <span class="nn">Exception</span><span class="err">('</span><span class="nn">abnormal</span> <span class="nn">get</span> <span class="nn">outcome</span> <span class="err">{}'</span><span class="nn">.format</span><span class="err">(</span><span class="nn">r</span><span class="err">))
+</span>		<span class="nn">x</span><span class="err">=</span><span class="nn">json.loads</span><span class="err">(</span><span class="nn">buffer.value</span><span class="err">)
+</span>		<span class="nn">global</span> <span class="nn">get_history</span><span class="err">
+</span>		<span class="nn">get_history.append</span><span class="err">(</span><span class="nn">x</span><span class="err">)
+</span>		<span class="nn">return</span> <span class="nn">x</span><span class="err">
+</span></code></pre>
+
+<h3 id="get-a-response-from-napi">Get a response from NAPI</h3>
+
+<p>Responses to requests are obtained by calling <code>napi::get</code>. Both responses to NEA requests and NAPI-generated notifications are returned from this function. When the <code>exchange</code> attribute is defined in the request, NAPI includes it in all responses to the request. This is intended to allow the NEA to match responses to requests.</p>
+
+<p><code>napi::get</code> is a blocking call. This variant returns when:</p>
+
+<ul>
+  <li>A message has been received from NAPI (<code>napi::GetOutcome::okay</code>)</li>
+  <li>A message from NAPI is ready, but the provided buffer is too small (<code>napi::GetOutcome::bufferTooSmall</code>)</li>
+  <li>NAPI is not running (<code>napi::GetOutcome::notRunning</code>)</li>
+  <li>NAPI has terminated (<code>napi::GetOutcome::napiTerminated</code>)</li>
+</ul>
+
+<p>If NAPI is not running, wait a short time and call <code>napi::get</code> again. No JSON messages are lost.</p>
+
+<p>The non-blocking version is <code>napi::try_get</code>.</p>
+
+<h1 id="provisioning">Provisioning</h1>
+
+<p>This step assumes that the user has clasped their Nymi Band around their wrist and authenticated it by some method (such as HeartID, password, or fingerprint). If you are developing against a Nymulator, the Nymulator puts the virtual Nymi Band in an authenticated state, ready for provisioning, when it is created.</p>
+
+<p>The <em>one-time</em> process of provisioning is initiated by the Nymi Band, and agreed upon mutually by the NEA and the Nymi Band. The process entails a cryptographic key exchange, which allows both parties to securely identify each other and communicate in future sessions.</p>
+
+<p><b>Note:</b> Conceptual information about provisioning can be found in the <a href="../background/">Bound Authenticator</a> section of <a href="../background/#nymi-api-concepts">Nymi API Concepts</a>.</p>
+
+<h2 id="start-provisioning-search-for-bands">Start provisioning (Search for bands)</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/run/start"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provision_start*"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">provision</span><span class="p">():</span>
+	<span class="n">ffi</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s">'provision/run/start'</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="n">create_exchange</span><span class="p">(</span><span class="s">'provision_start'</span><span class="p">))</span>
+	<span class="n">pattern</span><span class="o">=</span><span class="n">wait</span><span class="p">(</span><span class="s">'provision/report/patterns'</span><span class="p">)[</span><span class="s">'event'</span><span class="p">][</span><span class="s">'patterns'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre>
+
+<blockquote>
+  <p>Response <br />
+The response to starting provisioning is empty. Success is indicated by the sucess of the request itself.</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provision_start*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/run/start"</span><span class="p">,</span><span class="w">
+
+	</span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy provision_start 67b353fa2adac756beaef82362c7b4e3'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'provision/run/start'</span><span class="p">,</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>Before anything can be done, a Nymi-Enabled Application (NEA) must create at least one relationship, called a provision, with one Nymi Band. When the API is in provisioning mode, it searches for any nearby band that is also in provisioning mode (indicated by an LED pattern on the band that starts in the center and moves to the outside of the LED display). If a band is detected, a response is sent that includes an array of LED patterns of any bands found. The patterns are represented as a series of ‘+’ and ‘-‘ characters and are always five characters long.</p>
+
+<p>An NEA must prompt the user to confirm the light pattern on their Nymi Band in some way.</p>
+
+<p><strong>Note:</strong> NAPI will not send a response to the provisioning start request unless it finds a band. Once this list of patterns is received, it is up to the NEA to verify which (if any) of the patterns the user trying to provision their band is seeing, and to accept the specific pattern. Once a pattern is accepted, NAPI remains in provisioning mode until it is disabled by the NEA. This means that multiple bands <em>may</em> be provisioned in a single session, but keep in mind that it is the responsibilty of the NEA to maintain a mapping of provisions to user identities.</p>
+
+<p><strong>Important:</strong> The provision ID <em>must</em> be kept private to the NEA.</p>
+
+<h2 id="accept-pattern-on-band-complete-provision">Accept Pattern on Band (Complete Provision)</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provisioning*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/run/start"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Request"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="s2">"accept"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pattern"</span><span class="p">:</span><span class="s2">"++---"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+	<span class="n">ffi</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+		<span class="n">path</span><span class="o">=</span><span class="s">'provision/pattern'</span><span class="p">,</span>
+		<span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s">'action'</span><span class="p">:</span> <span class="s">'accept'</span><span class="p">,</span> <span class="s">'pattern'</span><span class="p">:</span> <span class="n">pattern</span><span class="p">},</span>
+		<span class="n">exchange</span><span class="o">=</span><span class="n">create_exchange</span><span class="p">(</span><span class="s">'accept'</span><span class="p">),</span>
+	<span class="p">)</span>
+	<span class="k">return</span> <span class="n">wait</span><span class="p">(</span><span class="s">'provisions/changed'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'provisions'</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'provisions'</span><span class="p">]</span>
+</code></pre>
+
+<blockquote>
+  <p>Response <br />
+This response just indicates that the accept has been received and is being processed by NAPI.</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provisioning*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/pattern"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Request"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="s2">"accept"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pattern"</span><span class="p">:</span><span class="s2">"++---"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'*provisions*'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'provisions/changed'</span><span class="p">,</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'provisions'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'devices'</span><span class="p">:</span> <span class="p">[]}},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>Pattern: <code>accept [+|-]{5}</code> <br />
+where <code>[+|-]{5}</code> is a five (5) character string that is composed of plus ‘+’ (LED on) and/or minus ‘-‘ (LED off) signs.<br />
+For example: <code>+-+-+</code> represents ON, OFF, ON, OFF, ON</p>
+
+<blockquote>
+  <p>Provision Successful Response <br />
+This is the response that occurs after NAPI and Nymi Band have successfully exchanged keys and the provision is complete. It usually takes 1-2 seconds between the previous response and this one. The response also encodes the full info of the band.</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"event"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"info"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"RSSI_last"</span><span class="p">:</span><span class="mi">-69</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"RSSI_smoothed"</span><span class="p">:</span><span class="mf">-68.58091241346888</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"authenticationWindowRemaining"</span><span class="p">:</span><span class="mf">50.058</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"commandQueue"</span><span class="p">:[</span><span class="w">  
+
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"commandsQueued"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"enabledRoamingAuthSetup"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"enabledSigning"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"enabledSymmetricKeys"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"enabledTOTP"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firmwareVersion"</span><span class="p">:</span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"found"</span><span class="p">:</span><span class="s2">"provisioning"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"hasApproached"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"06d344d3eb1e5124313767c48c6ae295"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"present"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"provisioned"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"proximity"</span><span class="p">:</span><span class="s2">"sphere4"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"sinceLastContact"</span><span class="p">:</span><span class="mf">0.20200000000000001</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"tid"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"kind"</span><span class="p">:</span><span class="s2">"provisioned"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provisioning*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/report/provisioned"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'*provisions*'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'provisions/changed'</span><span class="p">,</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'provisions'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'devices'</span><span class="p">:</span> <span class="p">[],</span>
+                                <span class="s">u'provisions'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">,</span>
+                                                                                      <span class="s">u'provision'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a78295dd559b4e3abe5108a802cddabe794317054bb9133084404bdd3ff62af05efc300000000000000000000000000000000'</span><span class="p">,</span>
+                                                                                      <span class="s">u'provisioned'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}}}},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<h3 id="notification-of-a-successful-provisioning">Notification of a successful provisioning</h3>
+
+<p>The <code>EventOnProvisionedData</code> notification consists of the newly created <code>pid</code> and some information presented as a JSON object regarding the new provision.</p>
+
+<p><strong>Note:</strong> Receiving this notification only informs the NEA of the new provision ID. The Nymi Band has not been authenticated yet, nor is the presence of the Nymi Band acknowledged. The <code>onFoundChange</code> and <code>onPresenceChange</code> notifications inform the NEA when these occur. There is a short time (&lt; 1s) required after the provisioning is complete before NAPI can authenticate or acknowledge the provision’s presence. See <a href="#authenticate-a-nymi-band">Authenticate a Nymi Band</a> for more about these notifications.</p>
+
+<h2 id="stop-provisioning">Stop Provisioning</h2>
+
+<blockquote>
+  <p>Request  <br />
+The response to stopping provisioning is empty. Success is indicated by the sucess of the request itself.</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provisioning*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/run/stop"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="n">ffi</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s">'provision/run/stop'</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="n">create_exchange</span><span class="p">(</span><span class="s">'provision_stop'</span><span class="p">))</span>
+</code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*provisioning*"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"provision/run/stop"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy provision_stop d4f8cd9087cfe24fcd4c2f3221c9b367'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'provision/run/stop'</span><span class="p">,</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>Disabling provisioning mode is good practice if the NEA does not need to provision additional bands. Otherwise, it may provision with other discoverable Nymi Bands in the area. You can, however, leave NAPI in provisioning mode if required.</p>
+
+<p>After an NEA has provisioned with a Nymi Band, it can securely authenticate the Nymi Band when the Nymi Band is present within Bluetooth transmission range. An NEA can also request actions, and NAPI will ensure that the Nymi Band is authenticated as part of the process of performing the requested action.</p>
+
+<h2 id="get-provisions">Get Provisions</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"info/get"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"provisions"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">info</span><span class="p">():</span>
+	<span class="n">ffi</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s">'info/get'</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="n">create_exchange</span><span class="p">(</span><span class="s">'info'</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">wait</span><span class="p">(</span><span class="s">'info/get'</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"provisions"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"info/get"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Response"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"config"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"commit"</span><span class="p">:</span><span class="s2">"---\nncl bf7e851c50a0fb21baa00eae0b13cfc13390bdc3\nnymi-security-library 9d0243cede02f5defa52424eadd35bbae4f29a12\nlibs 211c3acf5333c20bf6b527c45fe5c77fc4d81052\nnsp311263978d0fb7ef5aab870e3a321c7b05abfe47\n---"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"detecting"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"discovering"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"ecodaemon"</span><span class="p">:</span><span class="s2">"Nymi Bluetooth Service"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"finding"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"net"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"running"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"version"</span><span class="p">:</span><span class="s2">"dev 2017-Mar-23 15:40:51"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"nymiband"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"RSSI_last"</span><span class="p">:</span><span class="mi">-76</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"RSSI_smoothed"</span><span class="p">:</span><span class="mf">-76.981747224060868</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"commandQueue"</span><span class="p">:[</span><span class="w">  
+
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"firmwareVersion"</span><span class="p">:</span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"found"</span><span class="p">:</span><span class="s2">"authenticated"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isProvisioned"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"present"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"provisioned"</span><span class="p">:{</span><span class="w">  
+               </span><span class="nt">"authenticationWindowRemaining"</span><span class="p">:</span><span class="mf">59.993000000000002</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"commandsQueued"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"enabledCDF"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"enabledRoamingAuthSetup"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"enabledSigning"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"enabledSymmetricKeys"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"enabledTOTP"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"0618867992f6d8a467f471537479844d"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"sinceLastContact"</span><span class="p">:</span><span class="mf">0.0070000000000000001</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tid"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"provisionMap"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"0618867992f6d8a467f471537479844d"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"provisions"</span><span class="p">:[</span><span class="w">  
+         </span><span class="s2">"0618867992f6d8a467f471537479844d"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"provisionsPresent"</span><span class="p">:[</span><span class="w">  
+         </span><span class="s2">"0618867992f6d8a467f471537479844d"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"tidIndex"</span><span class="p">:[</span><span class="w">  
+         </span><span class="mi">0</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy info 58d83de14964531ca61cb6279694b870'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'info/get'</span><span class="p">,</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'config'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'commit'</span><span class="p">:</span> <span class="s">u'---</span><span class="se">\n</span><span class="s">ncl 24f8f9f9a8000676300af333d34a637b93b6f621</span><span class="se">\n</span><span class="s">nymi-security-library 0ae7bc13b908f51b9ab8b2c647e137ce8cf7b732</span><span class="se">\n</span><span class="s">libs cda6cc6e3968b04176a965025893b19ecfa6d710</span><span class="se">\n</span><span class="s">nsp 5f8c857c243e0385433ea2275f935f4d09302218</span><span class="se">\n</span><span class="s">---'</span><span class="p">,</span>
+                            <span class="s">u'detecting'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                            <span class="s">u'discovering'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                            <span class="s">u'ecodaemon'</span><span class="p">:</span> <span class="s">u''</span><span class="p">,</span>
+                            <span class="s">u'finding'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                            <span class="s">u'net'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                            <span class="s">u'running'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                            <span class="s">u'version'</span><span class="p">:</span> <span class="s">u'dev 2017-Mar-23 15:40:51'</span><span class="p">},</span>
+                <span class="s">u'nymiband'</span><span class="p">:</span> <span class="p">[{</span><span class="s">u'RSSI_last'</span><span class="p">:</span> <span class="o">-</span><span class="mi">62</span><span class="p">,</span>
+                               <span class="s">u'RSSI_smoothed'</span><span class="p">:</span> <span class="o">-</span><span class="mf">63.789048086945705</span><span class="p">,</span>
+                               <span class="s">u'commandQueue'</span><span class="p">:</span> <span class="p">[],</span>
+                               <span class="s">u'firmwareVersion'</span><span class="p">:</span> <span class="s">u'unknown'</span><span class="p">,</span>
+                               <span class="s">u'found'</span><span class="p">:</span> <span class="s">u'provisioning'</span><span class="p">,</span>
+                               <span class="s">u'isProvisioned'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                               <span class="s">u'present'</span><span class="p">:</span> <span class="s">u'yes'</span><span class="p">,</span>
+                               <span class="s">u'provisioned'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'authenticationWindowRemaining'</span><span class="p">:</span> <span class="mf">53.157000000000004</span><span class="p">,</span>
+                                                <span class="s">u'commandsQueued'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                                <span class="s">u'enabledCDF'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                                <span class="s">u'enabledRoamingAuthSetup'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                                <span class="s">u'enabledSigning'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                                <span class="s">u'enabledSymmetricKeys'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                                <span class="s">u'enabledTOTP'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                                <span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">},</span>
+                               <span class="s">u'sinceLastContact'</span><span class="p">:</span> <span class="mf">0.107</span><span class="p">,</span>
+                               <span class="s">u'tid'</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                              <span class="p">{</span><span class="s">u'RSSI_last'</span><span class="p">:</span> <span class="o">-</span><span class="mi">88</span><span class="p">,</span>
+                               <span class="s">u'RSSI_smoothed'</span><span class="p">:</span> <span class="o">-</span><span class="mf">87.34323735570607</span><span class="p">,</span>
+                               <span class="s">u'firmwareVersion'</span><span class="p">:</span> <span class="s">u'unknown'</span><span class="p">,</span>
+                               <span class="s">u'found'</span><span class="p">:</span> <span class="s">u'anonymous'</span><span class="p">,</span>
+                               <span class="s">u'isProvisioned'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                               <span class="s">u'present'</span><span class="p">:</span> <span class="s">u'likely'</span><span class="p">,</span>
+                               <span class="s">u'sinceLastContact'</span><span class="p">:</span> <span class="mf">8.408</span><span class="p">,</span>
+                               <span class="s">u'tid'</span><span class="p">:</span> <span class="mi">1</span><span class="p">}],</span>
+                <span class="s">u'provisionMap'</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s">u'provisions'</span><span class="p">:</span> <span class="p">[</span><span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">],</span>
+                <span class="s">u'provisionsPresent'</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s">u'tidIndex'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>In the JSON request and response, <code>exchange</code> can be either <code>provisions</code> or <code>provisionsPresent</code>. The latter returns only provisions for bands that are currently both visable to NAPI and authenticated.</p>
+
+<h1 id="authenticate-a-nymi-band">Authenticate a Nymi Band</h1>
+
+<p>After an NEA has <a href="#provisioning">provisioned</a> a Nymi Band, it must still confirm that the Nymi Band is found (authenticated), and present (within Bluetooth wireless transmission range).</p>
+
+<h4 id="to-securely-authenticate-a-nymi-band">To securely authenticate a Nymi Band:</h4>
+
+<ol>
+  <li>Enable notifications from NAPI.</li>
+  <li>Get the Found status of the Nymi Band.</li>
+  <li>Get the Presence status of the Nymi Band.</li>
+</ol>
+
+<h2 id="enable-napi-notifications">Enable NAPI Notifications</h2>
+
+<p>NAPI provides a notification service that the NEA can subscribe to. An NEA can be notified of certain events or changes. In particular:<br />
+<code>onFoundChange</code> when the current found state of a Nymi Band changes<br />
+<code>onPresenceChange</code> when the presence of a Nymi Band changes<br /></p>
+
+<p>These change notifications are enabled or disabled by setting a corresponding flag to true or false. You can change this flag as often as required. When the NEA starts, all notifications are disabled. Enabling or disabling a particular notification type does not affect any other type.</p>
+
+<p>The <code>onFoundChange</code> notification contains:</p>
+
+<ul>
+  <li>the provision ID (<code>pid</code>) of the Nymi Band <br /></li>
+  <li>parameters that indicates the state <em>before</em> and the state <em>after</em> the found state change</li>
+</ul>
+
+<p>The <code>after</code> parameter is the state that the Nymi Band transitioned to. The notification is fired after the transition is completed.</p>
+
+<p>When the value of the <code>after</code> parameter is <code>FoundStatus::AUTHENTICATED</code>, then the Nymi Band can be treated as securely authenticated. This state persists until the Nymi Band transitions to some other state.</p>
+
+<p><strong>Possible Found States of <code>onFoundChange</code>:</strong></p>
+
+<table>
+	<tr>
+		<td><strong>Found State</strong></td>
+		<td><strong>The Nymi Band is...</strong> </td>
+	</tr>
+	<tr>
+		<td>undetected</td>
+		<td>undetected (normally occurs when the Nymi Band 'walks away')</td>
+	</tr>
+	<tr>
+		<td>unclasped</td>
+		<td>unclasped (does not occur until <i>after</i> the Nymi Band has been authenticated)</td>
+	</tr>
+	<tr>
+		<td>unprovisionable</td>
+		<td>unable to be provisioned, normally because the Nymi Band is fully provisioned (by up to 5 other NEAs)</td>
+	</tr>
+	<tr>
+		<td>anonymous</td>
+		<td>not provisioned by this NEA (can occur for a short time when a provisioned Nymi Band is first detected)</td>
+	</tr>
+	<tr>
+		<td>discovered</td>
+		<td>in provisioning mode</td>
+	</tr>
+	<tr>
+		<td>provisioning</td>
+		<td>in the process of being provisioned</td>
+	</tr>
+	<tr>
+		<td>identified</td>
+		<td>claiming to be a provisioned band but this has not been confirmed (NAPI attempts to confirm)</td>
+	</tr>
+	<tr>
+		<td>authenticated</td>
+		<td>confirmed as provisioned with this NEA</td>
+	</tr>
+</table>
+
+<p>If the Nymi Band has been authenticated within the last minute, and then moves out of transmission range (for example, the user walks away), it can take up to a minute for NAPI to send the notification. In this case, you can use the <code>onPresenceChange</code> notification to determine the time since the NEA last heard from the Nymi Band. See the <em>Possible Presence States of <code>onPresenceChange</code></em> table.</p>
+
+<p><br /><br /></p>
+
+<p>The <code>onPresenceChange</code> notification contains:</p>
+
+<ul>
+  <li>the provision ID (<code>pid</code>) of the Nymi Band <br /></li>
+  <li>parameters that indicates the state <em>before</em> and the state <em>after</em> the presence change<br /></li>
+  <li>a boolean parameter indicating whether the Nymi Band is currently authenticated</li>
+</ul>
+
+<p><strong>Important:</strong> The presence state of a Nymi Band only reflects whether or not Bluetooth packets are received. When Bluetooth packets are received, the Nymi Band is simply advertising its presence. In particular, a presence state of <code>yes</code> means that Bluetooth packets have been received, but the Nymi Band should not be treated as authenticated unless <code>bool authenticated</code> is <code>true</code> in the <code>onPresenceChange</code> notification.</p>
+
+<p>When the <code>onPresenceChange</code> notification contains an <code>after</code> state of <code>yes</code> and authenticated is <code>true</code>, the Nymi Band can be treated as both present (in transmission range) and authenticated. This is true until <code>onPresenceChange</code> transitions to some other state, or authenticated is <code>false</code>, or <code>onFoundChange</code> transitions to a state other than authenticated.</p>
+
+<p><strong>Possible Presence States of <code>onPresenceChange</code>:</strong></p>
+
+<table>
+	<tr>
+		<td><strong>Presence State</strong></td>
+		<td><strong>NAPI has...</strong> </td>
+	</tr>
+	<tr>
+		<td>yes</td>
+		<td>received an advertisement from the Nymi Band within the last 5 seconds</td>
+	</tr><tr>
+		<td>likely</td>
+		<td>received an advertisement from the Nymi Band within the last 15 seconds</td>
+	</tr><tr>
+		<td>unlikely</td>
+		<td>received an advertisement from the Nymi Band within the last 60 seconds</td>
+	</tr><tr>
+		<td>no</td>
+		<td>not received an advertisement from the Nymi Band for more than 60 seconds</td>
+	</tr>
+</table>
+
+          <h1 id="miscellaneous-crypto-functions">Miscellaneous Crypto Functions</h1>
+
+<h2 id="get-pseudo-random-number">Get pseudo-random number</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"random/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929randombef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy random fcbdc99312e2f44fe851eb3d355a7829 9467d2ef0c55402812755d26ae0d02a8'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'random/run'</span><span class="p">,</span>
+  <span class="s">u'request'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">},</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">u'tracking'</span><span class="p">:</span> <span class="p">[{</span><span class="s">u'at'</span><span class="p">:</span> <span class="s">u'2017-03-24T22:16:28.787Z'</span><span class="p">,</span>
+                 <span class="s">u'event'</span><span class="p">:</span> <span class="s">u'Nymi Band request made'</span><span class="p">}]},</span>
+</code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929randombef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"random/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pseudoRandomNumber"</span><span class="p">:</span><span class="s2">"15eaba595d767aa376a4fe39eedb476b"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy random fcbdc99312e2f44fe851eb3d355a7829 9467d2ef0c55402812755d26ae0d02a8'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'random/run'</span><span class="p">,</span>
+  <span class="s">u'request'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">},</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'pseudoRandomNumber'</span><span class="p">:</span> <span class="s">u'26c02f912e14929ddf3e02cc8b0e759d'</span><span class="p">},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>This operation requests a 256-bit pseudo-random number from the PRNG on the band. The 128 bit block is not stored anywhere.</p>
+
+<h2 id="setup-and-sign-hash">Setup and Sign Hash</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"sign/setup"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+	</span><span class="s2">"curve"</span><span class="err">:</span><span class="s2">"NIST256P"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929signhashsetupbef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Request to set up the local signing capability. The NEA must specify the desired curve type.</p>
+
+<p>The possible curve types are: <code>NIST256P</code> or <code>SECP256K</code>. The default is <code>NIST256P</code>.</p>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929signhashsetupbef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="s2">"path"</span><span class="err">:</span><span class="s2">"sign/setup"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+	</span><span class="s2">"curve"</span><span class="err">:</span><span class="s2">"NIST256P"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+  
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The response to the request to set up signing contains only the result.</p>
+
+<h2 id="sign-run">Sign Run</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"sign/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+	</span><span class="s2">"hash"</span><span class="err">:</span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929signhashbef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Request to sign a SHA256 hash.</p>
+
+<p>To request a signature, an NEA must specify the desired curve type and provide a message to be signed. The message supplied to NAPI must be the 32 byte hash of the original message. The hash function is currently fixed as SHA256.</p>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"8929signhashsetupbef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"sign/setup"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+	</span><span class="s2">"hash"</span><span class="err">:</span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+	</span><span class="nt">"signature"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"verificationkey"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+          <h1 id="cryptographic-key-functions">Cryptographic Key Functions</h1>
+
+<h2 id="create-symmetric-key">Create Symmetric Key</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"symmetricKey/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"guarded"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1116createsymkeybef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This operation creates a 128-bit symmetric key on the band associated with the NEA but does not return it. Only one such key can be generated per band/per NEA.</p>
+
+<p><strong><code>guarded</code></strong>: If <code>true</code> the Nymi Band requires user verification, in the form of a double-tap on the band, before the key will be returned to the NEA.</p>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1116createsymkeybef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"symmetricKey/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"guarded"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="retrieve-symmetric-key">Retrieve Symmetric Key</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"symmetricKey/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"9404getsymkeybef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"9404getsymkeybef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"symmetricKey/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"6e5cdb92cfcb2363e3aa9c6450dd6482"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong><code>guarded</code></strong>: If <code>true</code> the Nymi Band requires user verification, in the form of a double-tap on the band, before the key will be returned to the NEA.</p>
+
+<p>When the NEA makes a request to retrieve a guarded symmetric key, it requires user confirmation within ten (10) seconds. Otherwise, the request times out.</p>
+
+<h2 id="delete-symmetric-key">Delete Symmetric Key</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"key/delete"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symmetric"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"9781deviceinfobef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"9781deviceinfobef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"key/delete"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"cdf"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"roamingAuthSetup"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sign"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symmetric"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"cdf"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ra"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sign"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symmetric"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can remove a symmetric key from the Nymi Band.</p>
+
+<h2 id="create-totp">Create TOTP</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"totp/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"guarded"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"48656c6c6f21deadbeef"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1650createTotpbef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1650createTotpbef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"totp/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"guarded"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"48656c6c6f21deadbeef"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Nymi Band can support an RFC 6238-compliant Time-based One Time Password generator. This operation creates that TOTP generator and seeds it with a shared secret. Currently the Nymi Band only supports 6 digit TOTPs.</p>
+
+<p>When registering a TOTP key, an NEA can configure the Nymi Band to require user confirmation, in the form of a gesture (double tap), for retrieval of tokens. This is referred to as a guarded TOTP. When the NEA makes a request to retrieve a guarded TOTP token, it requires user confirmation within ten (10) seconds. Otherwise, the request times out.</p>
+
+<p><strong><code>key</code></strong>: This is the shared secret generated by the TOTP server/target application either via QR-code or manual key entry.</p>
+
+<p><strong><code>guarded</code></strong>: If <code>true</code> the Nymi Band requires user verification, in the form of a double-tap on the band, before a TOTP value will be returned to the NEA.</p>
+
+<h2 id="retrieve-totp">Retrieve TOTP</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"totp/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1547getTotpbef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1547getTotpbef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"totp/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="s2">"673091"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The TOTP token is created by request, using the time of the request and the TOTP secret key.</p>
+
+<p><strong><code>guarded</code></strong>: If <code>true</code> the Nymi Band requires user verification, in the form of a double-tap on the band, before a TOTP value will be returned to the NEA.</p>
+
+<p>When the NEA makes a request to retrieve a guarded symmetric key, it requires user confirmation within ten (10) seconds. Otherwise, the request times out.</p>
+
+<h2 id="delete-totp">Delete TOTP</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"key/delete"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"5921deviceinfobef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"5921deviceinfobef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"key/delete"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"cdf"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"roamingAuthSetup"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sign"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symmetric"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"cdf"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ra"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sign"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symmetric"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totp"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This operation removes a TOTP token from the Nymi Band.</p>
+
+
+          <h1 id="notifications">Notifications</h1>
+
+<h2 id="send-notification-to-banduser-vibrate-band">Send notification to band/user (vibrate band)</h2>
+
+<blockquote>
+  <p>Request <br />
+<code>buzz</code>: If <em>true</em>, the band will vibrate once.  If <em>false</em> the band will vibrate twice.</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"buzz/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"buzz"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1441notifybef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code><span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy buzz fcbdc99312e2f44fe851eb3d355a7829 cb70611b186de8630130ca81a7414a60'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'buzz/run'</span><span class="p">,</span>
+  <span class="s">u'request'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'buzz'</span><span class="p">:</span> <span class="s">u'positive'</span><span class="p">,</span>
+               <span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">},</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">u'tracking'</span><span class="p">:</span> <span class="p">[{</span><span class="s">u'at'</span><span class="p">:</span> <span class="s">u'2017-03-24T22:16:29.145Z'</span><span class="p">,</span>
+                 <span class="s">u'event'</span><span class="p">:</span> <span class="s">u'Nymi Band request made'</span><span class="p">}]},</span>
+</code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"1441notifybef199e5d90770fccec0b9eeaae0e0de"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"buzz/run"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"buzz"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"bef199e5d90770fccec0b9eeaae0e0de"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight python"><code> <span class="p">{</span><span class="s">u'completed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u'exchange'</span><span class="p">:</span> <span class="s">u'apy buzz fcbdc99312e2f44fe851eb3d355a7829 cb70611b186de8630130ca81a7414a60'</span><span class="p">,</span>
+  <span class="s">u'path'</span><span class="p">:</span> <span class="s">u'buzz/run'</span><span class="p">,</span>
+  <span class="s">u'request'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'buzz'</span><span class="p">:</span> <span class="s">u'positive'</span><span class="p">,</span>
+               <span class="s">u'pid'</span><span class="p">:</span> <span class="s">u'fcbdc99312e2f44fe851eb3d355a7829'</span><span class="p">},</span>
+  <span class="s">u'response'</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s">u'successful'</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+</code></pre>
+
+<p>The Nymi Band core includes a haptic motor for providing feedback to the user as a vibration (or ‘buzz’).</p>
+
+<p>The Nymi standard actions are defined as:</p>
+
+<ul>
+  <li>POSITIVE = Single buzz = success</li>
+  <li>NEGATIVE = Double buzz = failure</li>
+</ul>
+
+<p>The Nymi Band also generates a light pattern:</p>
+
+<ul>
+  <li>Success - All five LEDs blink once.</li>
+  <li>Failure/Error - LEDs 2 and 4, then 3 and 5, flash and repeat. (Counting LEDs from left to right.)</li>
+</ul>
+
+<p><strong>Tip:</strong> To see what these patterns look like: open the Nymi Band app and view the in-app Help.</p>
+
+<h2 id="get-notification-subscription-status">Get Notification Subscription Status</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"onFirmwareVersion"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onFoundChange"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onGeneralError"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onPresenceChange"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>NAPI provides a notification service that the NEA can subscribe to, and these will cause NAPI to signal the NEA via a JSON response. An NEA can be notified of certain events or changes. Each notification type responds with an identical JSON message when fired by NAPI, and a single notification can contain more than one actual notification.</p>
+
+<p>In particular an NEA will make use of:<br />
+<code>onFoundChange</code> when the current found state of a Nymi Band changes<br />
+<code>onPresenceChange</code> when the presence of a Nymi Band changes<br /></p>
+
+<p>These change notifications are enabled or disabled by setting a corresponding flag to true or false. You can change this flag as often as required. When the NEA starts, all notifications are disabled. Enabling or disabling a particular notification type does not affect any other type.</p>
+
+<h2 id="enable-or-disable-notifications">Enable or disable notifications</h2>
+
+<blockquote>
+  <p>Request</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/set"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"onFoundChange"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>Response</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/set"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"onFoundChange"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"onFoundChange"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onGeneralError"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onPresenceChange"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"onProvision"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>In the <code>request</code> operation, the <code>request</code> key contains an object with one or more notification types and whether they should be enabled (<code>true</code>) or disabled (<code>false</code>).</p>
+
+<p>The following notifications are available:</p>
+
+<ul>
+  <li><code>onFoundChange</code>: Triggered when the band is found or lost. This generally occurs only when a band is clasped and authenticated or unclasped.</li>
+  <li><code>onPresenceChange</code>: Triggered when the presence of the band changes. This can mean a strong detection of the band (which is triggered by an operation on the band) has become stale or the signal strength of the band has recently weakened or strengthened. It is recommended that NAPI users experiment in their environment to see what triggers the onFound and onPresence notifications using one of the Nymi sample applications in order to more easily understand their dynamic.</li>
+  <li><code>onGeneralError</code>: Triggered any time an operation generates an error. This is enabled by default and it is recommended to remain in that state.</li>
+</ul>
+
+<h2 id="example-notification-responses">Example notification responses</h2>
+
+<blockquote>
+  <p>OnFound Example Reponse</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"after"</span><span class="p">:</span><span class="s2">"authenticated"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"before"</span><span class="p">:</span><span class="s2">"unclasped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"kind"</span><span class="p">:</span><span class="s2">"found-change"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"3b7a693f7c9f7f7710e414c6d74e7ae0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tid"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/report/found-change"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+  <p>OnPresence Example Reponse</p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nt">"completed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event"</span><span class="p">:{</span><span class="w">  
+    </span><span class="nt">"after"</span><span class="p">:</span><span class="s2">"yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"age"</span><span class="p">:</span><span class="mf">27.414999999999999</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"authenticated"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"before"</span><span class="p">:</span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"kind"</span><span class="p">:</span><span class="s2">"presence-change"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pid"</span><span class="p">:</span><span class="s2">"3b7a693f7c9f7f7710e414c6d74e7ae0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"remaining"</span><span class="p">:</span><span class="mf">32.585000000000001</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tid"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"*notifications*"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"notifications/report/presence-change"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"successful"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Important:</strong> The presence state of a Nymi Band only reflects whether or not Bluetooth packets are received. When Bluetooth packets are received, the Nymi Band is simply advertising its presence. In particular, a presence state of <code>yes</code> means that Bluetooth packets have been received, but the Nymi Band should not be treated as authenticated unless <code>bool authenticated</code> is <code>true</code> in the <code>onPresenceChange</code> notification.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">JSON</a>
+                <a href="#" data-language-name="python">Python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

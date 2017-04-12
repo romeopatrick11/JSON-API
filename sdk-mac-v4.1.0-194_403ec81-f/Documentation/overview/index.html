@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Nymi API Overview</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+	</style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="overview overview_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/nymidev.png" />
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc-footer2">
+		<ul class="toc-footer2">
+			<li id="link-main"><a href="http://downloads.nymi.com/sdkDoc/latest/index.html">Introduction</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/quickstart/">Developer Quick Start</a></li>
+			<li id="link-overview"><a href="http://downloads.nymi.com/sdkDoc/latest/overview/">Nymi API Overview</a></li>
+			<li id="link-json"><a href="http://downloads.nymi.com/sdkDoc/latest/json/">NAPI JSON Examples</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/background/">Nymi Background Concepts</a></li>
+		</ul>
+      </div>
+	  <div id="toc">
+	  </div>
+        <ul class="toc-footer">
+            <li><a href='https://support.nymi.com/hc/en-us/community/topics/'>Community</a></li>
+            <li><a href='http://www.nymi.com/dev/'>Developer Home</a></li>
+            <li><a href='../jsonreference/'>NAPI JSON Reference</a></li>
+            <li><a href='../napi-cpp/'>NAPI C++ Reference</a></li>
+            <li><a href='../napi-c/'>NAPI C Reference</a></li>
+        </ul>
+    </div>
+     <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview-of-napi">Overview of NAPI</h1>
+
+<p>The Nymi API (NAPI) is an asynchronous API that works by an interchange of JSON strings between a Nymi-Enabled app (NEA) and NAPI.</p>
+
+<p>Making a request to NAPI (<code>napi::put</code>) is a non-blocking call returning immediately, and it always succeeds if NAPI has been started (see <a href="../jsonreference/"><code>napi::PutOutcome</code></a> for details). Responses to requests are obtained by calling <code>napi::get</code>.</p>
+
+<p>Note: This success of <code>napi::put</code> even after <code>napi::terminate</code> has been called is an historical detail that will be addressed in a future release.</p>
+
+<p>There are three common approaches to writing an NEA using NAPI:</p>
+
+<ul>
+  <li>Intersperse calls to <code>napi::put</code> and <code>napi::get</code>.</li>
+  <li>Run <code>napi::put</code> and <code>napi::get</code> in their own threads, and link the response to the request using the <code>exchange</code>.</li>
+  <li>Run <code>napi::put</code> and <code>napi::get</code> in their own threads, and dispatch the responses by the <code>exchange</code>.</li>
+</ul>
+
+<p>The first approach is most useful in simple or short running NEAs. The second, and especially third, approaches are more useful in longer running or complex NEAs.</p>
+
+<h2 id="napi-functions">NAPI Functions</h2>
+
+<p>NAPI consists of four functions:</p>
+
+<ul>
+  <li><code>napi::configure</code> - Configure and start NAPI.</li>
+  <li><code>napi::get</code> - Returns a mix of JSON responses and NAPI-generated notifications. Use the <code>exchange</code> attribute to match responses to requests.</li>
+  <li><code>napi::put</code> - Send a JSON message to NAPI.</li>
+  <li><code>napi::terminate</code> - Quit NAPI. The NEA <strong>must</strong> call this function before exiting.</li>
+</ul>
+
+<p>Note: If there are operations in progress when terminate() is called, there may be a delay of up to 30 seconds before it completes.</p>
+
+<aside class="warning">NEAs on Windows OS **must** call napi::terminate() before exiting. If terminate() is not called before the NEA exits, the dynamic libraries will crash on unload. </aside>
+
+<p>The <a href="../json/">NAPI JSON Examples</a> section provides examples of JSON requests to and responses from NAPI.</p>
+
+<h2 id="napi-json-envelope-objects">NAPI JSON Envelope Objects</h2>
+
+<h3 id="request-object">Request Object</h3>
+
+<p>The envelope wrapping the NAPI JSON request is patterned as follows:</p>
+
+<p><code>
+napi::RequestEnvelope{ <br />
+ &nbsp; public: <br />
+ &nbsp; &nbsp; string &nbsp; &nbsp; path; &nbsp; // The path of the request <br />
+ &nbsp; &nbsp; string &nbsp; &nbsp; exchange;  &nbsp; // The exchange identifier <br />
+ &nbsp; &nbsp; Json::Value &nbsp; &nbsp; request;  &nbsp; // The actual request object <br />
+ &nbsp; };
+</code></p>
+
+<p>When a request is made to NAPI it is wrapped in this JSON object. The response from NAPI is wrapped in the same object with some additional attributes defined.</p>
+
+<p>The <code>exchange</code> attribute is an arbitrary string determined by the NEA that can be used to match this request to its response.</p>
+
+<h3 id="response-object">Response Object</h3>
+
+<p>The envelope wrapping the NAPI JSON response is patterned as follows:</p>
+
+<p><code>
+napi::ResponseEnvelope : public RequestEnvelope{ <br />
+ &nbsp; public: <br />
+ &nbsp; &nbsp; bool &nbsp; &nbsp; completed; &nbsp; // Whether the request completed <br />
+ &nbsp; &nbsp; bool &nbsp; &nbsp; successful;  &nbsp; // Whether the request was successful <br />
+ &nbsp; &nbsp; Json::Value  &nbsp; &nbsp; response;  &nbsp; // The actual response object <br />
+ &nbsp; &nbsp; vector&lt; vector&lt; string, string &gt; &gt; errors;  &nbsp; // Any errors reported by NAPI <br />
+ &nbsp; };
+</code></p>
+
+<p>When a response from NAPI is received, it is wrapped in the request JSON object, with the additional attributes described here.</p>
+
+<h2 id="napi-paths">NAPI Paths</h2>
+
+<table>
+<tr><th> Request </th><th> JSON Path</th> <th> Usage</th> </tr>
+<tr><td> <code>napi::InfoGet</code> </td><td><code> info/get</code></td><td>Request the current state of NAPI, provisions, and currently visible Nymi Bands.</td></tr>
+<tr><td> <code>napi::InitGet </code></td><td><code>init/get</code></td><td>Request the configuration state of the NAPI system.  </td></tr>
+<tr><td> <code>napi::NotificationGet</code> </td> <td><code>notifications/get </code></td> <td>Request the current state of notification subscriptions. </td></tr>
+<tr><td> <code>napi::NotificationSet </code></td> <td><code>notifications/set </code></td><td> Request subscriptions to the specified notifications.</td></tr>
+<tr><td> <code>napi::EventOnFoundChangeData </code></td><td><code>notifications/report/found-change</code></td><td>onFoundChange notification</td></tr>
+<tr><td> <code>napi::EventOnPresenceChangeData </code></td><td><code>notifications/report/presence-change</code></td><td>onPresenceChange notification </td></tr>
+<tr><td> <code>napi::EventOnGeneralErrorData </code></td><td><code>notifications/report/general-error</code></td><td>onGeneralError notification</td></tr>
+<tr><td> <code>napi::EventOnProvisionsChangedData </code></td><td><code>provisions/changed</code></td><td>onProvisionsChanged notification</td></tr>
+<tr><td> <code>napi::RevokeRun </code></td><td><code>revoke/run</code></td><td> Request that a provision be revoked (from a Nymi Band).</td></tr>
+<tr><td> <code>napi::RandomRun </code></td><td><code>random/run</code></td><td>Request a pseudo-random number. </td></tr>
+<tr><td> <code>napi::Buzz </code></td><td><code>buzz/run</code></td><td>Buzz (notify) the Nymi Band to indicate to the user an outcome of an NEA-specific operation. </td></tr>
+<tr><td> <code>napi::SignSetup </code>(NEW)</td> <td><code>sign/setup </code></td><td>Request to set up the local signing capability. </td></tr>
+<tr><td> <code>napi::SignRun </code>(NEW)</td><td><code>sign/run</code></td><td>Request to sign a SHA256 hash. </td></tr>
+<tr><td> <code>napi::SymmetricKeyGet</code> </td><td><code>symmetricKey/get</code></td><td>Request the value of the symmetric key. </td></tr>
+<tr><td> <code>napi::SymmetricKeyRun</code> </td><td><code>symmetricKey/run</code></td><td>Request that a symmetric key be generated.</td></tr>
+<tr><td> <code>napi::TOTPGet</code> </td><td><code>totp/get</code></td><td>Request the value of the TOTP. </td></tr>
+<tr><td> <code>napi::TOTPRun</code> </td><td><code>totp/run</code></td><td>Request to create a TOTP. </td></tr>
+<tr><td> <code>napi::ProvisionManagement</code> (NEW)</td><td><code>provision-management/run</code></td><td> Request that a provision be revoked. </td></tr>
+<tr><td> <code>napi::ProvisionRunStart</code> </td><td><code>provision/run/start</code></td><td>Start provisioning of Nymi Bands (when the Nymi Band goes into provisioning mode). </td></tr>
+<tr><td> <code>napi::ProvisionRunStop</code> </td><td><code>provision/run/stop</code></td><td> Stop provisioning of Nymi Bands.</td></tr>
+<tr><td> <code>napi::ProvisionPattern</code> </td><td><code>provision/pattern</code></td> <td>Inform the provisioning process of the LED pattern selected by the user.
+ </td></tr>
+<tr><td> <code>napi::EventOnLEDPatternChangeData</code> (NEW) </td><td><code>provision/report/patterns</code></td><td>Notify the NEA of the currently known provisioning LED patterns. </td></tr>
+<tr><td> <code>napi::EventOnProvisionedData</code> (NEW)</td><td><code>provision/report/provisioned</code></td><td>Notification of a successful provisioning. </td></tr>
+<tr><td> <code>napi::CDFRun</code> </td><td><code>cdf/run</code></td><td> Request the value of the CDF key. If you require this function, please contact Nymi for details.</td></tr>
+<tr><td> <code>napi::CDFGet</code> </td><td><code>cdf/get</code></td><td> Request to create a CDF key. If you require this function, please contact Nymi for details.</td></tr>
+<tr><td> <code>napi::RoamingAuthSetup</code> </td><td><code>roaming-auth-setup/run</code></td><td> Request to Setup Roaming Authentication. </td></tr>
+<tr><td> <code>napi::RoamingAuthRun</code> </td><td><code>roaming-auth/run</code></td><td>Initiate the Roaming Authentication process. </td></tr>
+<tr><td> <code>napi::EventRANonceData</code> </td><td><code>roaming-auth/report/nonce</code></td><td>Notification of a fresh nonce to be signed by the Roaming Authenticator service. </td></tr> 
+<tr><td> <code>napi::RoamingAuthSig</code> </td><td><code>roaming-auth-sig/run</code></td><td>Inform Nymi Band of the signature of the nonce, a fresh server nonce, and the partner public key. </td></tr>
+<tr><td> <code>napi::KeyDelete</code> </td><td><code>key/delete</code></td><td>Request to delete a key from the Nymi Band. </td></tr>
+</table>
+
+<h2 id="napi-reference-documentation">NAPI Reference Documentation</h2>
+
+<p>NEA writers can work with NAPI either directly through JSON, or through C/C++.</p>
+
+<ul>
+  <li>
+    <p>For more information about the JSON interface, see the <a href="../jsonreference/">JSON Reference</a> and <a href="../json/">JSON Examples</a>.</p>
+  </li>
+  <li>
+    <p>For more information about the C++ interface, see the <a href="../napi-cpp/">NAPI C++ Reference</a>.</p>
+  </li>
+  <li>
+    <p>For more information about the C interface, see the <a href="../napi-c/">NAPI C Reference</a>.</p>
+  </li>
+</ul>
+
+<p> &nbsp; </p>
+<p> &nbsp; </p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

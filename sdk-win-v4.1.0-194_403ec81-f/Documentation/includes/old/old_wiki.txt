@@ -1,0 +1,109 @@
+How to Run the Nymi JSON API
+
+The Nymi API (NAPI) is provided as an in-process static library for Windows OS, and OS X. Android and iOS have specialised libraries and are distributed and documented separately. The NAPI process is distributed on OS X as libnapi.a (for the Nymi Band) and libnapi-net.a (for the Nymulator), and json-napi.h API header file. On Windows OS it is distributed as napi-net.lib (library) and json-napi.h (header file). 
+
+The HTTPS/websocket server runs by default at https://127.0.0.1:11000 using self-signed certs. 
+
+In this release, a Nymi Enabled Application (NEA) consists of two processes: the NAPI process, and a websocket (WSS) client. To create a complete NEA your task is to create a WSS client. The NEA is technically the NAPI process and all connected WSS clients together, but we will call the client the NEA. In this release, if you connect several WSS clients to a single NAPI process you still have a single NEA. So, for example, there will be one set of provisions and crypto assets. This easily done by opening multiple browser windows, and the result can be very confusing.
+
+From this point on we will be assuming HTML/JavaScript based NEAs running in the Chrome web browser. There's nothing limiting you to this configuration, you could use any programming environment that provides WSS client libraries and, ideally, JSON parsers.
+
+Note: We plan to change how the certs are handled before the final release of the API. The current implementation is intended for convenience and locality while experimenting and developing NEAs with these beta releases of the JSON API.
+
+Using self signed certs for TLS (HTTPS and WSS) has consequences due to their inherent lack of security. This shows up very visibly when accessing the NAPI process from a web browser. Safari and IE will refuse the WSS connection. Chrome and Firefox will allow the user to access the NAPI process but only after the user agrees to the lower security (though FireFox will not work with the roaming authenticator samples). You can provide proper certs if you need to use other browsers though there are conditions set by the signing authorities that must be met. This is still a beta release of the API and upcoming releases will make this easy to do correctly.
+
+On OS X there are two executables provided. The first, napi-wss is a NAPI process that uses Core Bluetooth to communicate with Nymi Bands. The second, napi-wss-nymulator is a NAPI process that connects to the Nymulator.
+
+On Windows there is only the one executable napi-wss-net.exe which is a NAPI process that will communicate with either Nymi Bands or the Nymulator, but not both at the same time. Details on how to configure this are in the README.
+
+The NAPI process is launched from the command line, these are the command line options:
+
+napi-wss(-nymulator): a single application websocket based NAPI server
+
+    Usage:
+      napi-wss            <nea-directory> [--websocket=<addr>] [--log=<file>] [--verbose | --be-very-verbose]
+      napi-wss            (-h | --help)
+      napi-wss            --version
+
+    Options:
+      <nea-directory>     Root directory of the Nymi Enabled Application
+      --websocket=<addr>  Address on which to listen for websocket connections [default: 127.0.0.1:11000].
+      --log=<file>        The log file to append to (relative paths from <nea-directory>) [default: napi-wss.log].
+
+      --verbose           Be verbose.
+      --be-very-verbose   Be very verbose.
+
+      --version           Show version.
+      -h --help           Show this information.
+The <nea-directory> must be specified, it contains configuration and runtime information required by the NAPI process.
+
+The websocket address to listen on is specified with --websocket=<addr>. The default is 127.0.0.1:11000, and can be changed as you wish. Note that 127.0.0.1 is not necessarily equivalent to localhost for TLS, and they are definitely not interchangeable in some WSS clients (e.g. browsers).
+
+The NAPI process always writes to a log file. The default location is napi-wss.log in <nea-directory>. This can be changed with the --log command line option. Note that the path provided is relative to <nea-directory>. The log file is appended to, so if you don't delete it the file will grow. If you don't specify --verbose or --be-very-verbose the logging output is minimal, just warnings, errors, and fatal conditions. --be-very-verbose causes an astonishing volume of logging output, and is only useful when working with Nymi as a diagnostic tool.
+
+An experimental option will write, to separate files, every JSON message received and sent in a directory called ./messages (i.e. in the directory from where you run the NAPI process). If the directory doesn't exist, they won't be written. This can be very useful when developing an NEA. We will be addressing the naming of the files in the next beta release.
+
+Runtime Configuration
+
+This is the layout of the sampleJS directory, which represents an <nea-directory> containing the fragments of JavaScript that demonstrate the use of NAPI.
+
+sampleJS/
+├── certs/
+│   ├── cert.pem
+│   └── key.pem
+├── config.json
+└── static/
+    ├── README.md
+    ├── buzz.html
+    ├── buzz.js
+    ├── enableTOTP.html
+    ├── enableTOTP.js
+    ├── getTOTP.html
+    ├── getTOTP.js
+    ├── index.html
+    ├── info.html
+    ├── info.js
+    ├── peek.html
+    ├── peek.js
+    ├── provision.html
+    ├── provision.js
+    ├── random.html
+    ├── random.js
+    ├── registerRA.html
+    ├── registerRA.js
+    ├── roamingAuth.html
+    ├── roamingAuth.js
+    ├── sign.html
+    ├── sign.js
+    ├── sjcl.js
+    ├── symmetric-guarded.html
+    ├── symmetric-guarded.js
+    ├── symmetric.html
+    ├── symmetric.js
+    ├── watch.html
+    └── watch.js
+
+The certs directory contains sample certs that can be used to experiment with the NAPI process. Obviously these certs should not be used in a real situation as they are publicly visible on a github repo. You can generate your own using your preferred technique.
+
+The config.json file:
+
+{
+  "neaName" : "sampleJS",
+  "sigAlgorithm" : "NIST256P",
+  "automaticFirmwareVersion" : false
+}
+The NEA is named by the neaName property, in this case "sampleJS".
+
+The signing algorithm used is specified by the sigAlgorithm property. The default is NIST256P, the only other algorithm supported is SECP256K.
+
+It is possible to obtain the firmware version of every Nymi Band that's detected, if you want to do this set the automaticFirmwareVersion property to true. An NEA probably doesn't care what the firmware version is.
+
+Files Created while Running
+
+When the NAPI process is running it will create a number of files in the <nea-directory>.
+
+Two, or possibly three, log files with the extension .log will be created. These are used when working with Nymi as a diagnostic tool. You may delete these files before executing the NAPI process, but you should leave them unchanged during execution.
+
+The file provisions.json is the "memory" of the NAPI process. If you want continuity across runs leave this file as is, it's managed by the NAPI process. If you want to start again from scratch, delete the file -- you'll do this regularly while developing an NEA. It's a very bad idea to edit this file yourself. It's also a very bad idea to parse this file in your NEA -- not only is it frowned upon, but the contents and layout is officially undocumented, we will change it as we add features, and all actionable information contained in the file is available through the API anyway.
+
+It is a very bad idea to run more than one NAPI process using the same <nea-directory> simultaneously. There's no locking mechanism in place for this beta release so the NAPI processes will interfere with each other. You also cannot share addresses between NAPI processes. There is no problem if the <nea-directory>s and addresses are different.

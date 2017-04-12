@@ -1,0 +1,43 @@
+enum class HapticNotification { ERROR = -1, NOTIFY_NEGATIVE = 0, NOTIFY_POSITIVE = 1 };
+
+enum class FoundStatus { ERROR, ANONYMOUS, AUTHENTICATED, IDENTIFIED, PROVISIONING, UNCLASPED, UNDETECTED, UNPROVISIONABLE, DISCOVERED };
+
+enum class PresenceStatus { ERROR, DEVICE_PRESENCE_NO, DEVICE_PRESENCE_UNLIKELY, DEVICE_PRESENCE_LIKELY, DEVICE_PRESENCE_YES };
+
+
+	
+	const std::map<std::string,FoundStatus> foundEnum = {
+    {"undetected",FoundStatus::UNDETECTED},
+    {"unclasped",FoundStatus::UNCLASPED},
+    {"unprovisionable",FoundStatus::UNPROVISIONABLE},
+    {"anonymous",FoundStatus::ANONYMOUS},
+    {"discovered",FoundStatus::DISCOVERED},
+    {"provisioning",FoundStatus::PROVISIONING},
+    {"identified",FoundStatus::IDENTIFIED},
+    {"authenticated",FoundStatus::AUTHENTICATED}
+};
+
+const std::map<std::string,PresenceStatus> presentEnum = {
+    {"yes",PresenceStatus::DEVICE_PRESENCE_YES},
+    {"likely",PresenceStatus::DEVICE_PRESENCE_LIKELY},
+    {"unlikely",PresenceStatus::DEVICE_PRESENCE_UNLIKELY},
+    {"no",PresenceStatus::DEVICE_PRESENCE_NO}
+};
+
+
+undetected - not in range (?) / was here, has since left
+unclasped - band not closed/clasped / band removed
+unprovisionable - can't be provisioned (typically a dev issue, can currently only provision up to 7; 8 fails)
+anonymous - don't know anything about this band
+discovered - found band, in provision mode
+provisioning - in process
+identified - band is provisioned and was authenticated, but has lost authentication
+authenticated - band is OK (authenticated, provisioned, in range, detected, clasped, etc)
+
+Presence: is band within range and can we find it
+Yes = yes
+Likely = it was here, we assume it still is
+Unlikely = we haven't found it recently
+No = out of range
+
+

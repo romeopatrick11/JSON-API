@@ -1,0 +1,49 @@
+Intro
+Security in the Nymi World
+
+Before we do anything else, we need to have a common understanding of what security means in the Nymi world, how we guarantee security, and how your application needs to interact with the Nymi Band and the API.
+
+The Nymi Band implements **secure, [continuous authentication](#continuous-authentication)** and allows application developers to authenticate users securely, conveniently, and seamlessly without the need for passwords or repeated interruptions to the user. The authentication capability travels with the user via the Nymi Band wearable form factor. The Nymi Band allows the user to biometrically authenticate once and then interact securely with their digital and physical assets for the duration of their authenticated session (typically the rest of the day). 
+
+Example implementations:
+* Unlocking computers without a password
+* Providing physical access - unlocking doors without a card or fob key
+* Web service account authentication
+* Second factor digital access (2FA) with the Nymi Band
+* Authenticate registered users at public terminals (for example: airports, hotels, hospitals)
+
+
+###CONTINUOUS AUTHENTICATION
+
+Users are typically authenticated to a system by the discrete act of presenting some token, to gain some access or privilege. Examples include entering an account password for a web service, or entering a PIN at an ATM. This type of authentication loses trust over time. For example, many people choose to stay logged into their email account to avoid repeatedly typing their password. Here, the confidence that an individual currently using a service is the same individual that authenticated the access decreases the further we are from the time of authentication. There is a trade-off between security and convenience.
+
+The Nymi Band presents an elegant solution that does not compromise security for convenience. Instead of requiring the user to remember unique and complex passwords to various parties, the user authenticates the Nymi Band, which then relays the user’s authentication status to all subscribing or relying parties. With the Nymi Band acting as the authenticator on behalf of the user, we can now use cryptographic forms of authentication which provide security well above passwords and PINs. Furthermore, confidence in the Nymi Band’s state of authentication is not a function of time thanks to the on-body persistence of the Nymi Band’s authenticated state: the user authenticates the band when it is on their wrist, and when the band comes off the user’s wrist, the Nymi Band transitions to an unauthenticated state and becomes invisible to all parties.
+
+This allows a Nymi-enabled app to continuously authenticate a user’s presence without additional effort by the user, opening a world of possibilities to enhance both security and convenience.
+
+The Nymi Band may also be easily integrated into multi-factor authentication systems.
+
+
+###Pieces of the secure ecosystem:
+
+1 - The Nymi Band is an authenticator that interacts with various apps, devices, and identity systems. Nymi Bands communicate with the Nymi ecosystem over Bluetooth<sup>&reg;</sup> Low Energy (BLE). 
+
+2 - The Nymi Band application is a mobile app provided by Nymi. There must be a one-to-one (1-1) coupling between every Nymi Band and app. The role of the Nymi Band app is to:
+	Establish the one-to-one (1-1) coupling, through a one-time setup process
+	Authenticate the Nymi Band through HeartID, Touch ID, or other identifier
+	Provide an administration interface for the Nymi Band
+
+3 - The Nymi API 
+
+4 - A Nymi-enabled application (an NEA, your app) uses the authentication and/or security functionality provided by an authenticated Nymi Band.
+
+
+Key Concepts  [use definitions code?]
+
+What do we mean when we say:
+
+Activate
+Authenticate
+Provision
+Revocation
+Signal Quality

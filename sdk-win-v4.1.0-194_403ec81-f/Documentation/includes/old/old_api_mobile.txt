@@ -1,0 +1,44 @@
+## Nymi Android API
+
+For a detailed account of Nymi Android-API classes, the reader should refer to the 
+[Android API reference](./androidjavadoc/reference/com/nymi/api/package-summary.html), and to the
+[Nymi Android Sample App](https://github.com/Nymi/Android-API) for example usage. This sections serves to outline a high level description of the two main classes.
+
+The `NymiAdapter` class exposes all API operations that do not require a provision. Its instantiation is a singleton 
+that 
+
+* Manages the API.
+  - Initialization of the API.
+  - Setting and clearing of all callbacks to the NEA. These callbacks report on ingress/egress of Nymi Bands in Bluetooth transmission range of the NEA, amongst other information.
+* Handles provisions.
+  - Retrieve existing provisions.
+  - Instruct the API to start provisioning Nymi Bands.
+  - Set callbacks for provision agreement.
+* Toggles Bluetooth scan.
+* Allows an unprovisioned NEA to authenticate a Nymi Band as a [roaming authenticator](#roaming-authenticator).
+
+The `NymiProvision` class represents a single Nymi Band provisioned to the NEA, and exposes all API operations that require a provision.
+The list of provisioned bands can be obtained through `NymiAdapter.getProvisions()`. The class provides methods for sending haptic feedback, retrieving presence and proximity state, and accessing security features of a provisioned band. It also provides a method for registering a provisioned Nymi Band for roaming authentication.
+
+## Nymi iOS API
+
+For a detailed account of Nymi iOS-API classes, the reader should refer to the 
+<a href='./iosdoc/index.html'>iOS API Reference</a>, and to the [Nymi iOS Sample App](https://github.com/Nymi/iOS-API) for example usage. This sections serves to outline a high level description of the main classes.
+
+The `NymiService` class has functionality that doesn't pertain to a particular Nymi device. It is a static class that
+
+* Manages the API.
+  - Initialization of the API.
+  - Retrieval of API state.
+  - Subscribing and unsubscribing to notifications from the Nymi API. The observer functions receive notifications on ingress/egress of Nymi Bands in Bluetooth transmission range, changes in provisioned Nymi Band authentication/presence state, as well as changes in the API's state.
+* Handles provisions.
+  - Retrieve existing provisions.
+  - Enabling and disabling provisioning mode.
+  - Set callbacks for *provision agreement* and *provision successful* events.
+
+The `NymiDevice` class exposes the authentication and presence state of the Nymi Band, properties such as RSSI, as well as
+functionality to accept or reject provisioning with a potential Nymi Band.
+
+The `NymiProvision` class represents a single Nymi Band provisioned to the NEA, and exposes all API operations that require a provision. The class provides methods for sending haptic feedback and accessing security features of a provisioned band. When the NEA requests an operation on a `NymiProvision` instance, it also specifies a completion function where the result of the operation is sent.
+
+The list of provisioned bands can be obtained through `NymiService.getProvisions()`. 

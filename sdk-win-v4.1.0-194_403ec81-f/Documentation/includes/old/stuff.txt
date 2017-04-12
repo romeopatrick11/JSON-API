@@ -1,0 +1,156 @@
+separate wrapper from main
+explain how wrapper interfaces with NAPI
+
+
+main = consumer of wrapper
+write own nea based on main / nea consumes wrapper
+OR modify wrapper
+
+consumer:
+init api
+set of actions
+1. actions on provisioned bands
+	how? make a c++ call to proper function, providing a callback
+	- buzz
+	- sign
+	- create totp
+	- create sk / guarded sk
+	define callback and process result in callback
+	
+2. notifications
+	enable/disable notifications
+	get status of notifications
+
+3. provisioning
+
+revoke
+
+
+
+later - design decisions and architecture of wrapper
+to add to ours
+
+
+
+
+-- intent from band instead of just passive / permission to release keys
+	NEA asks, user approves with double tap
+	
+	separate section - how to request user intent , use guarded 
+	
+
+
+
+<aside class="warning"> You must call the functions in the correct order. If called in the wrong order, the API generates errors due to conflicts in thread order. </aside>
+
+
+
+
+### About the main.cpp File
+
+The `main.cpp` file can be considered in two sections:<br>
+<ul><li>The top half of the file consists of the functions called by the NEA when a Nymi Band returns values to the API.</li>
+<li>The bottom half of the file consists of the commands that the NEA sends to the Nymi Band through the API.</li>
+</ul>
+
+
+
+
+
+~~~cpp
+else if (user_input.find("provision_start") != std::string::npos) {
+			napi->startProvisioning(onPattern, onProvision);
+		}
+~~~
+
+This function is defined in the NymiApi class of the :
+
+~~~cpp
+bool NymiApi::startProvisioning(agreementCallback onAgree, newProvisionCallback onProvision) {
+
+    if (!onAgree || !onProvision) return false;
+    
+    PrivateListener::setOnAgreement(onAgree);
+    PrivateListener::setOnProvision(onProvision);
+    nymi::jsonNapiPut(start_prov());
+    return true;
+}
+~~~
+
+The wrapper sends the request to NAPI (json-napi.h). NAPI performs a jsonNapiPut to the Nymi Band, and then returns a jsonNapiGet from the band. 
+
+The JSON is:
+
+~~~json
+inline std::string start_prov() {
+
+	nljson j;
+    j["path"] = "provision/run/start";
+	j["exchange"] = "*provisioning*";
+	return j.dump();
+}
+~~~
+Listener grabs the response from NAPI and returns the result to main.
+
+
+main.cpp then presents the result of the exchange in the console:
+
+~~~
+Provisioning mode is now start
+
+received message: {"completed":false,"event":{"kind":"patterns","patterns":["+-++-"]},"exchange":"*provisioning*","operation":["provision","report","patterns"],"path":"provision/report/patterns","successful":true}
+
+Pattern(s) discovered: +-++-
+~~~
+
+The discovered pattern means that the Nymi Band has accepted the request to provision and is ready to pair with the NEA.
+
+The next part of provisioning is to accept the pattern and complete the pairing.
+
+In the console, you type: `accept +-++-` 
+This command is the equivalent of the user double-tapping their Nymi Band. 
+
+Info sent from NEA to Nymi Band:
+
+~~~
+accepting pattern +-++-
+received message: {"completed":true,"exchange":"*provisioning*","operation":["provision","pattern"],"path":"provision/pattern","request":{"action":"accept","pattern":"+-++-"},"response":{},"successful":true}
+~~~
+
+Info from Nymi Band sent back to NEA:
+
+~~~
+received message: {"completed":false,"event":{"info":{"RSSI_last":-60,"RSSI_smoothed":-60,"authenticationWindowRemaining":50.558,"commandQueue":[],"commandsQueued":0,"enabledRoamingAuthSetup":false,"enabledSigning":false,"enabledSymmetricKeys":false,"enabledTOTP":false,"firmwareVersion":"unknown","found":"provisioning","hasApproached":false,"pid":"939f0e8168765e56f9a92feafe30a5ac","present":"yes","provisioned":true,"proximity":"sphere4","sinceLastContact":0.01,"tid":2},"kind":"provisioned"},"exchange":"*provisioning*","operation":["provision","report","provisioned"],"path":"provision/report/provisioned","successful":true}
+
+Successfully provisioned with pid: 939f0e8168765e56f9a92feafe30a5ac
+
+received message: {"completed":true,"exchange":"*provisioning*","operation":["provision","run","stop"],"path":"provision/run/stop","response":{},"successful":true}
+
+Provisioning mode is now stop
+~~~
+
+A successfully provisioned Nymi Band has a `pid` (provision ID). This value never changes. The `pid` is primarily useful for development. (why?)
+
+
+### Step 3: Get Device Information
+
+info #
+
+where # is the Nymi Band index number. The index starts at zero (0). The first Nymi Band you create in the Nymulator is index #0. 
+
+Note: The index number is not necessarily the same as the number at the end of the band name in the Nymulator. For example: initially you create three virtual bands (nymi_band0, nymi_band1, and nymi_band2) in the Nymulator. These would be index 0, 1, 2. Later, you delete nymi_band1. 
+
+All provisions are saved in memory for the duration of the NAPI session. Terminating and restarting NAPI clears the memory.
+
+
+
+A provisioned band is authenticated by the NEA when the NEA receives notification from NAPI that the band is securely authenticated.
+(FoundStatus = authenticated && PresenceStatus = yes)
+
+
+
+
+
+<aside class="notice"> 
+The sample app and wrapper are provided by the copyright holders and contributors "AS IS" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed.
+</aside>

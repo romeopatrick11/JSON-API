@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+	</style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/nymidev.png" />
+        <div class="lang-selector">
+        </div>
+      <div id="toc-footer2">
+		<ul class="toc-footer2">
+			<li id="link-main"><a href="http://downloads.nymi.com/sdkDoc/latest/index.html">Introduction</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/quickstart/">Developer Quick Start</a></li>
+			<li id="link-overview"><a href="http://downloads.nymi.com/sdkDoc/latest/overview/">Nymi API Overview</a></li>
+			<li id="link-json"><a href="http://downloads.nymi.com/sdkDoc/latest/json/">NAPI JSON Examples</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/background/">Nymi Background Concepts</a></li>
+		</ul>
+      </div>
+	  <div id="toc">
+	  </div>
+    </div>
+     <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<h2 id="welcome-to-the-nymi-sdk-41">Welcome to the Nymi SDK 4.1</h2>
+
+<p>This release contains significant improvements and functionality changes. NEA developers are advised to read and understand these changes before updating their projects to this release of the Nymi SDK. NEA code updates are required to consume these changes.</p>
+
+<p>Note: If you choose not to upgrade to version 4.1, documentation for 4.0 is still available <a href="https://downloads.nymi.com/sdkDoc/doc-v4.0.0.1184-1184_4abdff2-f">here</a>.</p>
+
+<h2 id="new-in-sdk-41">New in SDK 4.1</h2>
+
+<p>In SDK 4.1, the Nymi API (NAPI) is provided as a dynamic library on Windows, and a framework on macOS.</p>
+
+<p>This version of the SDK targets Nymi firmware version 1.9.7. and later.</p>
+
+<aside class="notice">NEAs written with SDK 4.0 must be updated to account for the library and JSON API protocol changes. </aside>
+
+<h3 id="improvements">Improvements</h3>
+
+<ul>
+  <li>
+    <p>Provision management has been restructured so that NEAs are now responsible for managing the provision data. The <code>provisions.json</code> file has been deprecated. There is provision management functionality that allows the NEA to add and remove provisions from consideration without restarting. NEAs can provide the existing saved provision data to NAPI as part of the call to <code>napi::configure</code>. <br />
+For details, see <a href="#migrating-to-napi-41">Migrating to NAPI 4.1</a>.</p>
+  </li>
+  <li>
+    <p>Important: Provisions can be shared only across Windows machines. A provision created on a macOS/OSX machine cannot be shared to other Mac or Windows machines.</p>
+  </li>
+  <li>
+    <p>C++/C entry points have been renamed to simplify and standardize the interface.<br />
+  For example:<br />
+  OLD: <code>nymi:jsonNapiGet</code><br />
+  NEW: <code>napi:get</code><br />
+For details, see <a href="#migrating-to-napi-41">Migrating to NAPI 4.1</a>.</p>
+  </li>
+  <li>
+    <p>The <code>config.json</code> file has been deprecated. Configuration options are now provided in the call to <code>napi::configure</code>.</p>
+  </li>
+  <li>
+    <p>The <code>operation</code> field has been removed from JSON exchanges.</p>
+  </li>
+  <li>
+    <p>NAPI for Windows is now available as a dynamic library. For details, see <a href="#migrating-to-napi-41">Migrating to NAPI 4.1</a>.</p>
+  </li>
+  <li>
+    <p>NAPI for Mac is now available as a framework. For details, see <a href="#migrating-to-napi-41">Migrating to NAPI 4.1</a>.</p>
+  </li>
+  <li>
+    <p>The SDK is now supported on macOS Sierra <strong>10.12.2 or later</strong>. 
+ Note: Version 10.12.0 and 10.12.1 are NOT supported.</p>
+  </li>
+  <li>Improved Bluetooth error handling <br />
+  After a Bluetooth failure, NAPI now continues to attempt restarting indefinitely. Retries are 0.1s apart for the first 5 seconds, 1s apart for the first minute, and 5s apart after that. Two new error messages have been added:<br />
+    <ul>
+      <li>“An attempted restart of NAPI has failed, will try again” – issued on the general error channel after a failed restart</li>
+      <li>“NAPI is unable to restart, NEA must exit” – if something happened that excluded restarting<br /><br /></li>
+    </ul>
+  </li>
+  <li>
+    <p>NEAs can now choose to explicitly accept or reject a provision pattern through the action (accept, reject) argument to the <code>napi::ProvisionPattern</code> call. For details, see <a href="./jsonreference/index.html">napi::ProvisionPattern</a> in the NAPI JSON Reference.</p>
+  </li>
+  <li>The local signing function has been updated to require a setup call to NAPI before the signing function can be used. For details, see <a href="./jsonreference/index.html">napi::SignSetup</a> in the NAPI JSON Reference.</li>
+</ul>
+
+<h3 id="fixes">Fixes</h3>
+
+<ul>
+  <li>
+    <p>A number of existing and/or potential memory leaks have been fixed.</p>
+  </li>
+  <li>
+    <p>NAPI internals now uses a secure JSON memory allocator.</p>
+  </li>
+  <li>
+    <p><code>napi::terminate</code> is considered safe to use, and will allow you to restart NAPI without restarting the entire NEA.</p>
+  </li>
+</ul>
+
+<h3 id="known-issues">Known Issues</h3>
+
+<p>If there are operations in progress when terminate() is called, there may be a delay of up to 30 seconds before it completes.</p>
+
+<aside class="warning">NEAs on Windows OS **must** call napi::terminate() before exiting. If terminate() is not called before the NEA exits, the dynamic libraries will crash on unload. </aside>
+
+<h2 id="starting-points">Starting Points</h2>
+
+<ul>
+  <li>
+    <p>For an overview of the new SDK and the sample app provided by Nymi, see the <a href="./quickstart/#developer-quick-start">Developer Quick Start</a>
+<!-- and [Sample App Walkthrough](./walkthrough/#sample-app-walkthrough) sections-->.</p>
+  </li>
+  <li>
+    <p>For a deeper look into the fundamentals of developing NEAs with SDK 4.0, see the <a href="./background/#nymi-api-concepts">API Concepts</a> section.</p>
+  </li>
+  <li>
+    <p>For background information on the Nymi Band itself, see the <a href="./background/#the-nymi-band">The Nymi Band</a> section of the <a href="./background/#the-nymi-ecosystem">Nymi Ecosystem</a>.</p>
+  </li>
+  <li>
+    <p>Join the conversation with other NEA developers and the Nymi team in the <a href="https://support.nymi.com/hc/en-us/community/topics/">Nymi Community</a>.</p>
+  </li>
+</ul>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h1 id="migrating-to-napi-41">Migrating to NAPI 4.1</h1>
+
+<p>If you have developed an NEA using the Nymi SDK 4.0, you must update your NEA before attempting to use SDK 4.1. This section describes the high-level steps required for migrating a project from NAPI 4.0 to 4.1.</p>
+
+<ol>
+  <li>Rename entry points</li>
+  <li>Link the dynamic library or framework</li>
+  <li>Update configuration</li>
+  <li>Update provision handling</li>
+</ol>
+
+<h2 id="rename-entry-points">Rename Entry Points</h2>
+
+<p>Open your project and do a Search and Replace on the following names:</p>
+
+<table>
+<tr><th>OLD</th> <th>NEW</th></tr>
+<tr><td>nymi:: </td><td>napi:: </td></tr>
+<tr><td>JsonPutOutcome </td><td> PutOutcome </td></tr>
+<tr><td>JsonGetOutcome </td><td> GetOutcome </td></tr>
+<tr><td>JsonConfigOutcome </td><td> ConfigOutcome </td></tr>
+</table>
+
+<p></p>
+
+<h2 id="link-the-library">Link the Library</h2>
+
+<p>NAPI is now available as a dynamic library for Windows, and as a framework for macOS. Link your project against the new library or framework as required.</p>
+
+<p><strong>Windows:</strong></p>
+
+<ul>
+  <li>To implicitly link NAPI, use the provided <code>napi.h</code> header file, the <code>napi.lib</code> library, and the <code>napi.dll</code> file.</li>
+  <li>To explicitly link NAPI, make a function call to explicitly load <code>napi.dll</code> at run time.</li>
+</ul>
+
+<p>Note: Both Debug and Release versions of NAPI are available in the SDK package.</p>
+
+<p><strong>macOS/OS X:</strong></p>
+
+<ul>
+  <li>An installer package is provided for the macOS/OS X frameworks. Run the <code>sdk4.1\API\framework_installer\NAPI_Installer.pkg</code> to install all the files required for developing with NAPI.</li>
+</ul>
+
+<h2 id="update-configuration">Update Configuration</h2>
+
+<blockquote>
+  <p>C++</p>
+</blockquote>
+
+<pre class="highlight cpp"><code>
+<span class="n">API</span> <span class="n">ConfigOutcome</span> <span class="n">configure</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">neaName</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">logDirectory</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">provisions</span> <span class="o">=</span> <span class="s">"{}"</span><span class="p">,</span>
+    <span class="n">LogLevel</span> <span class="n">logLevel</span> <span class="o">=</span> <span class="n">LogLevel</span><span class="o">::</span><span class="n">normal</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">host</span> <span class="o">=</span> <span class="s">""</span> <span class="p">);</span>
+
+</code></pre>
+
+<blockquote>
+  <p>Python</p>
+</blockquote>
+
+<pre class="highlight python"><code>
+<span class="k">def</span> <span class="nf">configure</span><span class="p">(</span>
+	<span class="n">nea_name</span><span class="p">,</span>
+	<span class="n">log_directory</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span>
+	<span class="n">provisions</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">log_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+	<span class="n">port</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+	<span class="n">host</span><span class="o">=</span><span class="s">''</span>
+<span class="p">):</span>
+
+</code></pre>
+
+<p>Update the function to configure and initialize NAPI (<code>napi::configure</code>):</p>
+
+<p>This function replaces the <code>config.json</code> and the <code>provisions.json</code> files. Instead of those two files, you must provide the NEA name and the list of any existing provisions to NAPI when it is initialized.</p>
+
+<p>The default values are shown in the example code on the right.</p>
+
+<h2 id="update-provision-handling">Update Provision Handling</h2>
+
+<p>Add code to your NEA to manage the saving/storing of provisions. Your NEA must take on the task of managing provisions. It is up to you to decide how to implement this. Use the NAPI commands for putting and getting provisions to change the list of provisions that NAPI knows about.</p>
+
+<p>Note: The provisions must be kept secret to the NEA.</p>
+
+<p><em>Important:</em> Provisions created on Windows PCs can only be shared across Windows devices. Provisions created on macOS/OS X are specific to the device they are created on and <em>cannot</em> be shared with any other devices, regardless of platform.</p>
+
+<p>Although NAPI itself no long requires the <code>provisions.json</code> file, you can still make use of it in your NEA. In general, the standard method for handling provisions is as follows:</p>
+
+<ol>
+  <li>On first run, configure NAPI with an empty list of provisions.</li>
+  <li>Provision Nymi Bands as you have previously done.</li>
+  <li>Before quitting the NEA, save the provision information to the <code>provisions.json</code> file.</li>
+</ol>
+
+<p>For details see <a href="./json/">NAPI JSON Examples</a>.</p>
+
+<p>For an example of this behaviour, see the <code>apy</code> sample app.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

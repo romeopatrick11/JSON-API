@@ -1,0 +1,744 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Nymi SDK Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+	</style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="background background_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/nymidev.png" />
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc-footer2">
+		<ul class="toc-footer2">
+			<li id="link-main"><a href="http://downloads.nymi.com/sdkDoc/latest/index.html">Introduction</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/quickstart/">Developer Quick Start</a></li>
+			<li id="link-overview"><a href="http://downloads.nymi.com/sdkDoc/latest/overview/">Nymi API Overview</a></li>
+			<li id="link-json"><a href="http://downloads.nymi.com/sdkDoc/latest/json/">NAPI JSON Examples</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/background/">Nymi Background Concepts</a></li>
+		</ul>
+      </div>
+	  <div id="toc">
+	  </div>
+        <ul class="toc-footer">
+            <li><a href='https://support.nymi.com/hc/en-us/community/topics/'>Community</a></li>
+            <li><a href='http://www.nymi.com/dev/'>Developer Home</a></li>
+            <li><a href='../jsonreference/'>NAPI JSON Reference</a></li>
+            <li><a href='../napi-cpp/'>NAPI C++ Reference</a></li>
+            <li><a href='../napi-c/'>NAPI C Reference</a></li>
+        </ul>
+    </div>
+     <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+
+          <h1 id="the-nymi-ecosystem">The Nymi Ecosystem</h1>
+
+<p>The Nymi Band is an <em>authenticator</em> that interacts with various apps, devices, and identity systems. The collection of these apps, devices, identity systems, and Nymi Bands make up the Nymi Ecosystem.</p>
+
+<p>Nymi Bands communicate with the Nymi Ecosystem through Bluetooth<sup>®</sup> Low Energy wireless technology. At a high level, there are two types of apps in the ecosystem:</p>
+
+<ol>
+  <li>The <a href="#nymi-band-app">Nymi Band application</a> is a mobile app provided by Nymi. There must be a one-to-one pairing between Nymi Band and app. The Nymi Band app does the following:
+    <ul>
+      <li>Establishes the one-to-one pairing with a Nymi Band through a one-time <a href="#setup">setup</a> process</li>
+      <li>Manages your alternate authentication options (for example, Touch ID or password)</li>
+      <li>Administers the Nymi Band (for example, firmware updates)</li>
+    </ul>
+  </li>
+  <li>A <a href="#nymi-enabled-apps">Nymi-Enabled Application</a> (NEA) is an application (app) that Nymi or the developer community writes, using the Nymi SDK and API. An NEA uses the authentication and/or security functionality provided by an authenticated Nymi Band.</li>
+</ol>
+
+<p><strong>Note:</strong> The Nymi Band does not use traditional Bluetooth pairing for communication. The Nymi Band app manages the connection with the Nymi Band, using encryption that is independent of the Bluetooth protocol.</p>
+
+<p>The following diagrams characterize the Nymi Band’s interactions with its paired Nymi Band app, and with the ecosystem of NEAs. It highlights the sequential steps required to use the Nymi Band as an authenticator, beginning with the setup of an out-of-the-box Nymi Band.</p>
+
+<h3 id="setup">Setup</h3>
+
+<p><em>Use the Nymi Band app (available on Google Play™ or the App Store®) to set up your Nymi Band and create an associated biometric profile. Setup requires a Bluetooth<sup>®</sup> Low Energy wireless connection between your Nymi Band and the Nymi Band app. Profile creation is typically a one-time process in the lifetime of the Nymi Band. However, if you reset the band, you must create a new profile.</em></p>
+
+<p><img alt="Nymi Band app Setup" src="../images/NCAEnrollment.png" /></p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p><em>A Nymi Band is authenticated by HeartID on the Nymi Band itself, or by Touch ID or other secure mechanism through the Nymi Band app. Authentication is typically done once a day, and persists until you unclasp the band.</em></p>
+
+<p><img alt="NCA Authentication" src="../images/NCAAuthentication.png" /></p>
+
+<h3 id="nea-communication">NEA Communication</h3>
+
+<p><em>An NEA communicates with an authenticated Nymi Band through the Nymi API and Bluetooth<sup>®</sup> wireless technology. The Nymi Band must explicitly grant an NEA permission to connect to it. This is done through the <a href="#provisioning">provisioning</a> process.</em></p>
+
+<p><img alt="NEA Ecosystem" src="../images/NEAEcosystem.png" /></p>
+
+<h2 id="the-nymi-band">The Nymi Band</h2>
+
+<p>The Nymi Band enables Always On Authentication™ in the form of a secure, persistent, wearable biometric solution.</p>
+
+<h3 id="persistent-authentication">Persistent Authentication</h3>
+
+<p>Users are typically authenticated to a system by the discrete act of presenting <em>some</em> token, to gain some access or privilege. Examples include entering an account password for a web service, or entering a PIN at an ATM. This type of authentication loses trust over time. For example, many people opt to stay logged into their email to avoid repeatedly typing their password. Here, the confidence that an individual currently using a service is the same individual that authenticated the access decreases as the time since authentication increases. There is a trade-off between security and convenience.</p>
+
+<p>The Nymi Band presents an elegant solution that does not compromise security for convenience. Instead of requiring the user to remember unique and complex passwords to various parties, the user authenticates the Nymi Band, which then relays the user’s authentication status to all subscribing parties. With the Nymi Band acting as the authenticator on behalf of the user, we can now use cryptographic forms of authentication that provide security well above passwords and PINs. Furthermore, confidence in the Nymi Band’s state of authentication is not a function of time thanks to the on-body persistence of the Nymi Band’s authenticated state: the user authenticates the band when it is on their wrist, and when the band comes off the user’s wrist, the Nymi Band transitions to an unauthenticated state, becoming invisible to all parties. This allows an NEA to persistently authenticate a user’s presence without additional effort by the user, opening a world of possibilities to enhance both security and convenience.</p>
+
+<p>The Nymi Band may also be easily integrated into multi-factor authentication systems.</p>
+
+<p>The following diagrams illustrate how the Nymi Band changes the traditional password-based authentication space. A relying party is any entity that requires user authentication.</p>
+
+<p><em>Password-based solution does not scale well with the increase of relying parties and increase of security requirements for passwords.</em></p>
+
+<p><img alt="Password Authentication" src="../images/auth.png" /></p>
+
+<p><em>Nymi solution provides increased security and greater simplicity.</em></p>
+
+<p><img alt="Nymi Authentication" src="../images/nymi_auth.png" /></p>
+
+<h3 id="anatomy-of-the-nymi-band">Anatomy of the Nymi Band.</h3>
+
+<p><img alt="Nymi Band Anatomy" src="../images/NymiBandAnatomy2.png" /></p>
+
+<h3 id="heartid---ecg-as-a-biometric">HeartID - ECG as a Biometric</h3>
+
+<p>HeartID™ is the unique biometric authentication algorithm developed by Nymi that uses the electrocardiogram (ECG) of a user as a biometric identifier. An ECG signal is the electrical signal generated by an individual’s heart. The user’s ECG is read through the two electrodes on the Nymi Band, and analyzed by HeartID. HeartID uses machine learning algorithms to extract features relating to the <em>shape</em> of the ECG signal. These algorithms are invariant to the <em>heart rate</em>. That means the HeartID algorithm is not affected by going for a run, or enjoying a cup of coffee. The HeartID algorithm is currently integrated into the Nymi Band itself, and enables on-band user authentication.</p>
+
+<aside class="notice">The Nymi Band is NOT certified as a medical device, and the ECG signal should not be used for medical purposes. The Nymi API does not expose or enable streaming of a user's ECG data.
+</aside>
+
+<p>Why use ECG as a biometric? One of the earliest biometrics used was fingerprints because they are universal, unique, permanent, and easy to capture. More recently, facial recognition has become common for applications ranging from access control to surveillance. Fingerprints and facial features are categorized as <em>extrinsic</em> biometric identifiers, and they can often be captured without an individual’s consent (known as skimming). ECG, on the other hand, is an <em>intrinsic</em> biometric identifier, and is not susceptible to skimming attacks without an individual’s cooperation. Capturing ECG data requires direct or very close contact with the user, making it suitable for secure, user-controlled biometric recognition systems. Unlike fingerprints, latent samples are not left behind on contact surfaces. Additionally, ECG can be captured through techniques that are seamless and convenient to the user.</p>
+
+<h2 id="nymi-band-app">Nymi Band App</h2>
+
+<p>The Nymi Band app is a mobile application that helps you set up and manage your Nymi Band profile. It is available for Android on Google Play™ and for iOS on the App Store®. To create your profile with the Nymi Band app, follow the instructions in the app. The setup process involves capturing approximately one minute of heartbeat data with the Nymi Band, as well as creating a secondary method of authentication (for example, fingerprint recognition, or a password).</p>
+
+<p><em>The setup process in the Nymi Band app</em></p>
+
+<p><img alt="The Android Nymi Band app" src="../images/nca_android1.png" />     <img alt="The Android Nymi Band app2" src="../images/nca_android2.png" /></p>
+
+<p>After setup is complete, the Nymi Band app is used for managing profile settings, fitness tracking data, and alternate authentication methods, enhancing your biometric profile with more heartbeat data, and managing your <a href="#provisioning">provisions</a> to NEAs.</p>
+
+<h2 id="nymi-enabled-apps">Nymi-enabled Apps</h2>
+
+<p>Nymi-enabled Applications (NEAs) are applications that use the Nymi Band’s authentication and security capabilities. An NEA communicates only with authenticated Nymi Bands. NEAs are written and managed by <em>relying parties</em> (RP). A relying party is defined as an entity, with a physical or web presence, that uses the Nymi Band to authenticate its users.</p>
+
+<p>NEAs can run on any machine that is Bluetooth<sup>®</sup> compliant and runs a <a href="../quickstart/#supported-platforms">supported platform</a>. See the <a href="#nymi-api-concepts">Nymi API Concepts</a> section to learn about the technical specifications of an NEA and how it can interact with the Nymi API.</p>
+
+
+          <h1 id="nymi-api-concepts">Nymi API: Concepts</h1>
+
+<p>This section outlines the key concepts and features that are exposed through the Nymi API (NAPI) for the development of a Nymi-Enabled Application (NEA).</p>
+
+<p>The available feature set depends on whether the Nymi Band’s interaction with the NEA is characterized as a <a href="#bound-authenticator">bound authenticator</a> or a <a href="#roaming-authenticator">roaming authenticator</a>. In either case, the Nymi Band is the <em>authenticator</em>.</p>
+
+<p>Communication between an NEA and the Nymi Band is always initiated by the NEA. If interpreted as the client-server model, the Nymi Band is a server and the NEA is a client. In Bluetooth terminology, the Nymi Band is a peripheral device and the NEA is a central device.</p>
+
+<p><strong>In this section, every reference to a Nymi Band must be understood as an authenticated Nymi Band.</strong></p>
+
+<p>See the <a href="#the-nymi-ecosystem">The Nymi Ecosystem</a> section for an overview of how to authenticate a Nymi Band.</p>
+
+<h2 id="nymi-band-information">Nymi Band Information</h2>
+
+<p>An NEA can retrieve basic information from any Nymi Band that is within Bluetooth transmission range. The following properties are exposed:</p>
+
+<ul>
+  <li>Authentication status: Indicates the Nymi Band’s authentication status (also referred to as <code>found</code> status). Possible values include: undetected, unclasped, unprovisionable, anonymous, discovered, provisioning, identified, and authenticated.</li>
+  <li>Presence status: Indicates whether the Nymi Band is present within range of the NEA. Possible values include: Yes, Likely, Unlikely, and No.</li>
+  <li>Provision status: Indicates if the Nymi Band is <a href="#provisioning">provisioned</a> to the inquiring NEA.</li>
+  <li>RSSI : A measure of Bluetooth signal strength in the range  [-1 (<em>very</em> strong), -90 (weak)].</li>
+  <li>Smoothed RSSI: An exponential smoothing algorithm applied to the RSSI stream.</li>
+  <li>Time since last contact: The amount of time, in seconds, since the Nymi Band was last heard from.</li>
+  <li>Authentication window remaining: A counter indicating how much of the authentication window remains. The total window is 60 seconds. If no contact with the Nymi Band occurs during this time, then the Presence status changes.</li>
+  <li>Number of commands queued: The number of operations in the Nymi Band’s work queue.</li>
+</ul>
+
+<p>Important: Obtaining information about a Nymi Band does not imply a secure identification of an authenticated Nymi Band. See the <a href="#bound-authentication">Bound Authentication</a> section to learn about how to securely identify an authenticated Nymi Band.</p>
+
+<h2 id="bound-authenticator">Bound Authenticator</h2>
+
+<p>A bound authenticator is one that has a logical coupling with a device that calls on the authenticator. In the Nymi ecosystem, this logical coupling is referred to as <strong>provisioning</strong>, and it establishes a trusted relationship between the Nymi Band and a specific NEA running on a specific device.</p>
+
+<p>Provisioning allows an NEA to do the following:</p>
+
+<ul>
+  <li>Securely authenticate an associated Nymi Band.</li>
+  <li>Communicate a positive or negative status through <a href="#providing-feedback-to-the-nymi-band">haptic feedback</a> to the Nymi Band.</li>
+  <li>Use a number of <a href="#cryptographic-functions">security features</a> offered by the Nymi Band. These concepts are explained below.</li>
+</ul>
+
+<h3 id="provisioning">Provisioning</h3>
+
+<p>The <em>one-time</em> process of provisioning is initiated by the Nymi Band, and agreed upon mutually by the NEA and the Nymi Band. The process entails a cryptographic key exchange that allows both parties to securely identify each other and communicate in future sessions.</p>
+
+<p>The <a href="../quickstart/">Developer Quick Start</a> describes how to provision a Nymi Band with the sample app. The following high level steps are an illustration of the concepts behind the provisioning process.</p>
+
+<ol>
+  <li>
+    <p>The user puts their authenticated Nymi Band in <em>provisioning mode</em>, by tapping the band until the LED lights display an outward animated pattern (that is, from the center light out).</p>
+  </li>
+  <li>
+    <p>The NEA instructs NAPI to start provisioning. NAPI starts to scan for Nymi Bands in provisioning mode.</p>
+  </li>
+  <li>
+    <p>To ensure the NEA has found the right Nymi Band, since there may be multiple bands in provisioning mode simultaneously, a pattern must be matched. This pattern is generated on the Nymi Band and projected onto the lights of the Nymi Band. This pattern is also computed independently by NAPI and sent to the NEA. It is up to the wearer of the Nymi Band to confirm that the pattern generated on the Nymi Band matches the pattern generated by NAPI. This step is referred to as <em>agreement</em>.</p>
+  </li>
+  <li>The NEA now has the pattern of <em>some</em> provisioning band that it has connected with. The NEA can either:
+    <ul>
+      <li>display the pattern to the user, and ask for confirmation that the displayed pattern matches that on the Nymi Band
+ OR</li>
+      <li>ask the user to input the pattern on their Nymi Band, and proceed if it matches the pattern sent to the NEA by NAPI</li>
+    </ul>
+
+    <p>The first approach is more convenient for the user, while the second provides greater certainty of a correct match.</p>
+  </li>
+  <li>
+    <p>After the user confirms a match, the NEA confirms to the Nymi Band that it wants to provision with it.</p>
+  </li>
+  <li>The NEA then receives a provision ID (<code>pid</code>) from the Nymi Band, confirming that the two are provisioned. <strong>Important:</strong> The provision ID <em>must</em> be kept private to the NEA.</li>
+</ol>
+
+<p>The provision can be invalidated by either party unilaterally. A provision on the Nymi Band can be removed through the Nymi Band app or through NAPI. An NEA invalidates a provision by destroying or eliminating access to the provision ID.</p>
+
+<h3 id="bound-authentication">Bound Authentication</h3>
+
+<p>Consider an application in which a decision or task depends on the presence of a provisioned Nymi Band. For example, when a user specifies intent to log into a service or device, an NEA administrating the login needs to authenticate the user based on the presence of their Nymi Band. The Nymi API communicates that it has securely authenticated the Nymi Band through the <code>found</code> enum, which must take the value of <code>found::authenticated</code>.</p>
+
+<p>Remember: <a href="#nymi-band-information">Retrieving information</a> from the Nymi Band is not the same as securely authenticating the band.</p>
+
+<p><strong>The Nymi Band continuously broadcasts its authenticated state to its provisioned NEAs</strong>. NAPI allows synchronous and asynchronous approaches to receiving this broadcast. An NEA may poll NAPI to confirm that a provisioned Nymi Band is present (within Bluetooth transmission range) and authenticated, or it can register callbacks with NAPI, and request to be notified when the Nymi Band’s status has changed. Neither of these approaches require a connection with the Nymi Band in the Bluetooth sense.</p>
+
+<h3 id="cryptographic-functions">Cryptographic Functions</h3>
+
+<p>The Nymi Band exposes the following cryptographic functionality to NEAs with which it is provisioned. When using these features, NAPI establishes a Bluetooth connection with the Nymi Band.</p>
+
+<ul>
+  <li>
+    <p><strong>High-Quality Entropy</strong></p>
+
+    <p>The Nymi Band has a hardware-backed entropy source suitable for generating cryptographic keys. This can be queried by an NEA in 128 bit increments and is exposed in two forms:</p>
+
+    <ul>
+      <li>Pseudo-random number generation</li>
+      <li>Symmetric key generation and retrieval, with guarded option</li>
+    </ul>
+
+    <p>In the first form, the Nymi Band returns the 128 bit block without storing this block anywhere.</p>
+
+    <p>In the second form, the 128 bit symmetric key, <em>K</em>, is stored on the Nymi Band. The key (<em>K</em>) is returned to the NEA.</p>
+
+    <p>The NEA must handle <em>K</em> carefully, as external parties are not privy to its value.
+  The NEA may keep <em>K</em> in volatile memory only for the purpose of, and within the scope and time necessary for, the NEA to perform the required cryptographic operations with <em>K</em>.
+  In particular, the NEA must never save <em>K</em> to persistent storage.</p>
+  </li>
+  <li>
+    <p><strong>Guarded Symmetric Keys</strong></p>
+
+    <p>Guarded symmetric keys add user intent to the key generation and retrieval. The first time a guarded symmetric key is requested for a provision, the Nymi Band notifies the user with haptic feedback and a light pattern. The user must confirm the request with a gesture (double tap) on the Nymi Band. If the gesture is not performed within 10 seconds of the notification, the operation fails. Each time this guarded key is requested, the user must perform the gesture.</p>
+  </li>
+  <li>
+    <p><strong>Digital signing</strong></p>
+
+    <p>The Nymi Band can generate public-private key pairs &lt;<em>vk</em>,<em>sk</em>&gt; for Elliptic Curve Digital Signature Algorithm (ECDSA) signing. ECDSA requires the specification of both an elliptic curve and a hash function. The hash function is currently fixed as SHA256. The following curve types are supported:</p>
+
+    <ul>
+      <li>NIST P-256</li>
+      <li>Secp256k1</li>
+    </ul>
+
+    <p>To request a signature, the NEA must specify the desired curve type and provide a message to be signed.</p>
+
+    <aside class="notice">The message supplied to NAPI must be the 32 byte hash of the original message.</aside>
+
+    <p>The secret key of the key pair, <em>sk</em> is saved on the Nymi Band and is not shared with any parties. A 64-byte verification key <em>vk</em> and the signed message are returned to the NEA. Using standard cryptographic libraries, the NEA can verify the signature by providing the signed message, the original message, <em>vk</em>, and the ECDSA curve type to a verification function.</p>
+
+    <p>Example uses of this feature include SSH, which accepts NIST P-256 curves, and Bitcoin, which accepts Secp256k1 curves.</p>
+  </li>
+  <li>
+    <p><strong>Time-based one-time password (TOTP)</strong></p>
+
+    <p>The Nymi Band can generate time-based one-time password (TOTP) tokens using the current time and a secret key as inputs. Only the secret key needs to be provided by the NEA. TOTP tokens are accepted as a second factor for login credentials at an increasing number of web services. For example, you want to log into your account at site <em>X</em>, and <em>X</em> accepts TOTP tokens as a second factor of authentication. The required workflow is as follows:</p>
+
+    <ul>
+      <li>
+        <p>One time setup:</p>
+
+        <ul>
+          <li>
+            <p>Enable 2-FA with site <em>X</em>.</p>
+          </li>
+          <li>
+            <p>Site <em>X</em> generates a secret key, often as a QR code.</p>
+          </li>
+          <li>
+            <p>An NEA provides the secret key in hexadecimal to the Nymi Band, where it is stored.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Recurring step:</p>
+
+        <ul>
+          <li>At every subsequent login to site <em>X</em>, an NEA prompts the Nymi Band to generate a TOTP token. 
+This token, a 6-digit number by standard, should be passed to site <em>X</em> to satisfy 2-FA login requirements.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Guarded TOTP</strong></p>
+
+    <p>When registering a TOTP key, an NEA can configure the Nymi Band to require user confirmation, in the form of a gesture (double tap), for subsequent retrieval of tokens. At token retrieval time, an NEA’s request for such a <em>guarded</em> token will timeout in 10 seconds without user confirmation.</p>
+  </li>
+</ul>
+
+<h3 id="providing-feedback-to-the-nymi-band">Providing Feedback to the Nymi Band</h3>
+
+<p>An NEA can send haptic feedback to a Nymi Band, to communicate a positive or negative result/outcome to the user. A positive outcome is a single vibration (or ‘buzz’), while a negative one is a double vibration (buzz twice).</p>
+
+<h2 id="roaming-authenticator">Roaming Authenticator</h2>
+
+<p>Roaming Authenticator mode is designed for use cases where a permanent 1:1 relationship between a Nymi Band and a Nymi-Enabled Application (NEA) is not feasible. Such use cases could include things like airport kiosks, payment terminals, hospital terminals, or hotel smart locks. These terminals process high volumes of user traffic, and a user’s interaction with such terminals may be short-lived; possibly a single encounter. Furthermore, it is not possible to provision a user’s Nymi Band with each terminal with which the user might interact.</p>
+
+<p>A major difference between solutions using Roaming mode and Bound mode is that a roaming solution requires a central server that can be accessed during both band provisioning and actual authentication. This Relying Party Server (RPS) associates a band with a user identity during band registration and then returns that user identity (and possibly provides some authorization services) during roaming authentication.</p>
+
+<p>Roaming Authentication consists of two basic steps:</p>
+
+<ul>
+  <li>Registration<br />
+  Registration occurs only once and requires a 1:1 provision with a registration NEA. During this process, public keys are exchanged between this NEA and a band, and the Relying Party Server associates this key and a key ID returned by the band with a user identity.</li>
+  <li>Authentication<br />
+  During authentication no provision is required. An NEA simply selects any available band (found via NAPI) and begins authentication. By exchanging a series of signed nonces the RPS and NAPI can verify each others’ identities and the NEA ends up with a verified key ID. That key ID can then be used to look-up a previously registered user identity.</li>
+</ul>
+
+<p>Note: Unlike a bound authenticator, a roaming authenticator only acts as a point-in-time authentication source. After it is authenticated, the Nymi Band does not exchange presence information with NAPI and does not generate notifications. In order to verify the continued presence of a registered band the NEA itself must re-authenticate the band over time.</p>
+
+<h3 id="registration">Registration</h3>
+
+<p>A Nymi Band provisions with an enrollment NEA owned by the relying party. The Nymi Band and the relying party exchange public keys through the enrollment NEA, allowing for mutual identification between the two in future encounters. The message diagram below illustrates the registration process.</p>
+
+<p><img alt="roaming-setup" src="../images/roaming_setup.png" /></p>
+
+<h3 id="roaming-authentication">Roaming Authentication</h3>
+
+<p>After registration, the Nymi Band can be presented as an authenticator to the relying party’s terminals. Such terminals also run an NEA that is not provisioned to the Nymi Band. The terminal NEA and the Nymi Band engage in two-way ECDSA signature verification.</p>
+
+<p>The terminal’s NEA retrieves an advertisement nonce through a Nymi API function call and passes it to the relying party server. The server signs the hash of the Nymi Band’s nonce concatenated with a server nonce. This can be any random value generated by the server. This signature is sent to the Nymi Band for verification. The server nonce and the relying party public key are also sent along with the signature.</p>
+
+<p>The Nymi Band uses the relying party’s public key to verify the signature. If verification is successful, the Nymi Band signs the server nonce with its private key. This signature is sent to the terminal’s NEA, and passed along to the server for the verification. If this verification is also successful, the terminal is notified by the server to accept the Nymi Band as a token of authentication, and to allow the relevant access rights.</p>
+
+<p><img alt="roaming-setup" src="../images/roaming_auth.png" /></p>
+
+<h2 id="security">Security</h2>
+
+<p>Authenticating with the Nymi Band means you are using strong cryptographic technologies for authentication that are backed by the biometric identification of the wearer.</p>
+
+<p>When an NEA gets an indication of the presence of a band, this is based on cryptographic authentication. In the case of bound authentication, there is a proof of possession of a shared secret key (the provision). In the case of roaming authentication, this is authentication based on possession of a signing key.</p>
+
+<p>All keying material stored on the Nymi Band is stored in such a way as to be completely inaccessible when the band is unauthenticated. Even if an attacker has physical access to the device, the keys used for authentication cannot be easily extracted.</p>
+
+<p>Another important element in the security design of the Nymi Band concerns the storage and usage of the biometric data. Data collected for the enrollment and matching of HeartID is stored only on the Nymi Band itself. Specifically, this data is not shared with NEAs that provision to the band.</p>
+
+<p>Moreover, the fact that the biometrics are stored in a decentralized manner means there is no biometric stockpile in the Nymi system. This is significant as biometric databases are appealing targets for cyber criminals, and reports of biometric database compromises are more and more common.</p>
+
+
+          <h2 id="nymi-communication">Nymi Communication</h2>
+
+<p>The Nymi communication stack is composed of the following layers:</p>
+
+<p><img alt="api-diagram" src="../images/api_diagram.png" /></p>
+
+<p>The Nymi API Core communicates with the Nymi Band using the Nymi System Protocol (NSP) over Bluetooth Low Energy. Having our own system protocol over the Bluetooth protocol allows for stricter security policies, beyond what is offered by Bluetooth encryption.</p>
+
+<h2 id="using-the-nymulator">Using the Nymulator</h2>
+
+<p>The Nymulator is a standalone application supported on Windows OS and OS X that simulates up to <em>6</em> physical Nymi Bands, for development and testing of NEAs. Simulated Nymi Bands are <em>always</em> enrolled and authenticated, since NEAs interact with Nymi Bands only within this capacity.</p>
+
+<p>The Nymulator simulates the <em>logic</em> and the <em>state</em> of a Nymi Band, not the physical hardware. While the message content sent between a virtual Nymi Band and an NEA are the same as those of a physical band, the communication channel is TCP/IP as opposed to Bluetooth Low Energy. Because it runs on the network, the host machine on which the Nymulator is running can differ from the device running the NEA. For example, your Android NEA can communicate with an instance of the Nymulator running on your desktop.</p>
+
+<p>Virtual Nymi Bands support the same feature set as the physical band. This includes sending <a href="#providing-feedback-to-the-nymi-band">haptic feedback</a>, <a href="#cryptographic-functions">cryptographic</a> functionality, and <a href="#bound-authentication">continuous authentication</a> for bound authenticators.</p>
+
+<p>The following table provides an overview of the various features of the Nymulator app.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add</td>
+      <td>Creates a new Nymi Band instance. The result is an enrolled and authenticated Nymi Band with no provisions. You can add up to 6 Nymi Bands simultaneously. Each Nymi Band can have up to  provisions, the same as for a physical band.</td>
+    </tr>
+    <tr>
+      <td>Rename</td>
+      <td>Click the pencil in the right panel to rename a Nymi Band.</td>
+    </tr>
+    <tr>
+      <td>Remove</td>
+      <td>Hover over a Nymi Band in the left panel list and click X to remove it.</td>
+    </tr>
+    <tr>
+      <td>Save</td>
+      <td>Save the current list of Nymi Bands. This saves all associated provisions and keys.</td>
+    </tr>
+    <tr>
+      <td>Load</td>
+      <td>Load a previously saved list of Nymi Bands.</td>
+    </tr>
+    <tr>
+      <td>Nymi Band UI</td>
+      <td>The top right image reflects the UI of the Nymi Band. It conveys haptic notifications through GUI shake, as well as LED patterns and animations, for example, for provisioning agreement.</td>
+    </tr>
+    <tr>
+      <td>RSSI scrollbar</td>
+      <td>Use the RSSI scroll bar to simulate the RSSI value of a Nymi Band; a lower values maps to a weaker Bluetooth signal strength. If RSSI is set to -100, the Nymi Band stops advertising. This simulates the Nymi Band moving out of Bluetooth transmission range. To enable advertisement, set the RSSi to any value greater than -100.</td>
+    </tr>
+    <tr>
+      <td>Context-sensitive Button</td>
+      <td>The text on the button under the RSSI scrollbar reflects its context-sensitive functionality. For example, it may say “Begin Provisioning” or “Quad Tap”. The latter message simulates a user’s quad tap gesture on the Nymi Band. By default, quad tap is used to put the Nymi Band in provisioning mode.</td>
+    </tr>
+    <tr>
+      <td>Activity Log</td>
+      <td>Logs results of user actions (such as adding a band) as well as the state of the Nymi Band (for example, advertising).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="connecting-to-the-nymulator">Connecting to the Nymulator</h3>
+
+<p>To connect to the Nymulator, the following <em>general</em> requirements must be met. Specific requirements are specified in the <a href="../quickstart/">Developer Quick Start</a>.</p>
+
+<ul>
+  <li>
+    <p>The Nymulator must be invoked <em>before</em> the NEA is started, otherwise NAPI will fail to initialize.</p>
+  </li>
+  <li>
+    <p>On OS X there is a distinction in the NAPI library for connecting to the Nymulator vs the physical Nymi Band. The NEA must link/run against the Nymulator version of NAPI (<code>napinet</code>).</p>
+  </li>
+  <li>
+    <p>The Nymulator host machine and the NEA host device must be on the same network. The NEA may need to specify the IP address/port number of the Nymulator host machine.</p>
+
+    <aside class="notice">Note that connecting an Android phone to a computer via a cable does not put them on the same WiFi network.</aside>
+  </li>
+  <li>
+    <p>The default port of the Nymulator is <strong>9088</strong>. If this port is in use, it will decrement the port number to find an open port.</p>
+  </li>
+</ul>
+
+<p><strong>Windows OS Specific Requirements</strong></p>
+
+<ul>
+  <li><a href="https://www.microsoft.com/en-ca/download/details.aspx?id=40784">Microsoft Visual Studio 2013 Redistributable</a> is required.</li>
+</ul>
+
+
+          <h1 id="glossary">Glossary</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authenticator</td>
+      <td>A device that is responsible for securely verifying the user to various relying parties, and maintaining the cryptographic material required for the relying party authentication.</td>
+    </tr>
+    <tr>
+      <td>Bluetooth<sup>®</sup> Low Energy</td>
+      <td>A wireless technology that consumes a fraction of the power of Classic Bluetooth<sup>®</sup>. The Nymi Band uses Bluetooth<sup>®</sup> Low Energy to communicate with other devices.</td>
+    </tr>
+    <tr>
+      <td>Bound Authenticator</td>
+      <td>An authenticator that provisions with a restricted set of trusted devices.</td>
+    </tr>
+    <tr>
+      <td>ECG</td>
+      <td>Electrocardiogram is a measure of electrical activity of the heart. This signal is analyzed by the HeartID algorithm.</td>
+    </tr>
+    <tr>
+      <td>HeartID</td>
+      <td>An algorithm developed by Nymi that uses machine learning to extract underlying features of an ECG signal, and uses these features in ECG recognition</td>
+    </tr>
+    <tr>
+      <td>Nymi Band App</td>
+      <td>An application developed by Nymi which is required to set up and manage the Nymi Band.</td>
+    </tr>
+    <tr>
+      <td>NEA</td>
+      <td>Nymi-Enabled Application. An application developed by a relying party that uses the Nymi API to communicate with the Nymi Band.</td>
+    </tr>
+    <tr>
+      <td>Nymi Ecosystem</td>
+      <td>The collection of Nymi Bands, Nymi Band apps, NEAs, Nymi-based identity systems, and the interactions between these entities.</td>
+    </tr>
+    <tr>
+      <td>Provisioning</td>
+      <td>The sharing of a secret cryptographic key that allows a Nymi Band and an NEA on a particular device to securely identify each other.</td>
+    </tr>
+    <tr>
+      <td>Relying Party</td>
+      <td>(RP) An entity with a physical or web presence that uses the Nymi Band to authenticate its users.</td>
+    </tr>
+    <tr>
+      <td>Roaming Authenticator</td>
+      <td>An authenticator that is configured to communicate with unprovisioned devices of a relying party, provided that it is provisioned with the relying party’s <em>enrollment</em> NEA.</td>
+    </tr>
+    <tr>
+      <td>RSSI</td>
+      <td>Received Signal Strength Indicator. A measure of the strength of an incoming Bluetooth<sup>®</sup> wireless signal in the range [-1 (<em>very</em> strong), -90 (weak)]. Lower RSSI values map to weaker Bluetooth<sup>®</sup> wireless signal strength.</td>
+    </tr>
+  </tbody>
+</table>
+
+          <h1 id="links-and-downloads">Links and Downloads</h1>
+
+<h3 id="sdk-for-windows-and-mac-os-x">SDK for Windows and Mac OS X</h3>
+
+<p>See <a href="../quickstart/#supported-platforms">Supported Platforms</a> for a list of supported operating systems.</p>
+
+<p><a href="http://github.com/Nymi/JSON-API/releases">SDK 4.1</a> includes the Nymi API, documentation, and the Nymulator.</p>
+
+<p><a href="../jsonreference/">NAPI JSON Reference Documentation</a><br />
+<a href="../napi-cpp/">NAPI C++ Reference Documentation</a><br />
+<a href="../napi-c/">NAPI C Reference Documentation</a><br /></p>
+
+<h3 id="sample-applications">Sample Applications</h3>
+
+<p><strong>For NAPI 4.1:</strong></p>
+
+<ul>
+  <li><a href="http://github.com/Nymi/SampleApps/Python/">Python NEA</a></li>
+</ul>
+
+<p><strong>For NAPI 4.0:</strong></p>
+
+<ul>
+  <li><a href="http://github.com/Nymi/SampleApps/Cplusplus/">NEA using C++ Wrapper</a></li>
+  <li><a href="http://github.com/Nymi/SampleApps/Java/">NEA using Java Wrapper</a></li>
+</ul>
+
+
+          <h1 id="trademarks">Trademarks</h1>
+
+<p>Nymi, Nymi Band, HeartID, and Always On Authentication are registered trademarks of Nymi Inc. Apple, App Store, Mac, OS X, Touch ID, and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries. The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc. Firefox is a registered trademark of the Mozilla Foundation. Git and the Git logo are either registered trademarks or trademarks of Software Freedom Conservancy, Inc, corporate home of the Git Project, in the United States and/or other countries. GITHUB and the GITHUB logo design are exclusive trademarks registered in the United States by GitHub, Inc. Google, Android, Chrome, and Play are registered trademarks of Google Inc. Java is a registered trademark of Oracle and/or its affiliates. Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries. Python and PyCon are trademarks or registered trademarks of the Python Software Foundation. UNIX is a registered trademark of The Open Group. All other trademarks, servicemarks, and registered trademarks are the property of their respective owners.</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

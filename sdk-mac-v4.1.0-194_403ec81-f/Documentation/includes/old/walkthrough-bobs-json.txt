@@ -1,0 +1,126 @@
+## Obtaining information about Nymi Bands
+
+To obtain information about Nymi Bands in the area and some NAPI state information:
+
+~~~cpp
+const string InfoGetResponseData::path           = "info/get";
+
+class InfoGetRequestData{
+  public:
+  };
+~~~
+
+The sample app returns the following information, preformatted as shown:
+
+~~~
+Info for Nymi band with provision id: 7112e2a101fdfd78579d93a9cdc6938e
+  Authentication status: FoundStatus::Authenticated
+  Presence status: Present::Yes
+  Last RSSI: -72
+  Smoothed RSSI: -71
+  Firmware version: unknown
+  Provisioned: true
+  Time since last contact: 0.001
+  Authentication window remaining: 59.614
+  Number of commands queued: 0
+~~~
+
+This NEA established the provision ID (pid) during the provisioning process (remember that process of matching light patterns?). 
+
+The authentication/presence state of the Nymi Band is represented by two properties: `found` and `present`. This band is both authenticated and present. This authentication will be good for another 59.614 seconds according to the Authentication window remaining (`authenticationWindowRemaining`). The NAPI process attempts to keep the authentication valid, and can normally do so unless the Nymi Band has actually left the area. 
+
+This Nymi Band is considered present because the NEA has been in contact with it within the last 5 seconds. The combination of found, present, provisioned, Time since last contact (`sinceLastContact`), and Authentication window remaining enable you to determine if the Nymi Band is sufficiently authenticated for the purposes of your NEA. For most NEAs, a found value of 'authenticated' is good enough. The addition of the value of present:yes provides a strong indication that the provisioned Nymi Band is present.
+
+If automatic firmware versioning is enabled, then the NAPI process attempts to determine the firmware version on the Nymi Band. The sample app does not have this option enabled, so the firmware version is always "unknown".
+
+Last RSSI (`RSSI_last`) is the last reported RSSI value for that Nymi Band. Smoothed RSSI (`RSSI_smoothed`) is the last known value of an exponentially smoothed RSSI value. The RSSI value indicates the strength of the Bluetooth wireless connection. The range of values is -90 to -30.
+
+The Number of commands queued (`commandsQueued`) property is the number of operations waiting to complete on this Nymi Band. Operations are things that can be done to a provisioned Nymi Band (not simple queries like 'info' and not provisioning) and are described in their own sections -- examples are `sign`, `getSymmetricKeys`, and more. Operations are queued and are completed asynchronously. This is primarily to deal with Bluetooth wireless connection issues in some environments, but there may be  circumstances where this is not what you want done. For example, if the Nymi Band goes out of range before completing the work, the work will stay on the queue and be performed next time the Nymi Band appears. 
+
+
+For the purpose of learning to write your own NEA, examining the raw response in pieces provides more insight.
+
+Let's look at an example:
+
+~~~cpp
+received message: {"completed":true,
+"exchange":"7058deviceinfo7112e2a101fdfd78579d93a9cdc6938e",
+"operation":["info","get"],
+"path":"info/get",
+
+"response":{"config":{"commit":"---\nncl 172272992759f7abbeaea5fbf0fc26da77001c81\nnymi-security-library afece9802c05f1304993182e2d06e12ab6025a00\nlibs 211c3acf5333c20bf6b527c45fe5c77fc4d81052\nnsp 6756e4cb0c016f59b92f6be15d4828ec0e3b3319\n---",
+"ecodaemon":"Nymi Bluetooth Service",
+"version":"dev 2016-Aug-18 17:20:10"},
+~~~
+
+The `config` information is primarily useful when reporting problems to Nymi. It provides a quick overview of the state of the NAPI: `ecodaemon` means that the NAPI expects to run against the Nymi Bluetooth Service. The `commit` and `version` values provide build information. 
+
+~~~cpp
+"nymiband":[
+~~~
+
+The `nymiband` property contains information about every Nymi Band recently in range of the NAPI process. This includes Nymi Bands that are present as well as those that have left the area. The order of Nymi Bands in this array is *arbitrary*. In particular, the index in the array *does not* correspond to the `tid` of the Nymi Band. The `tid` is a temporary ID assigned to a Nymi Band. If a Nymi Band is not provisioned, the tid is the only way to identify it within the NEA.
+
+~~~cpp
+{
+"RSSI_last":-92,
+"RSSI_smoothed":-91.294947491883363,
+"firmwareVersion":"unknown",
+"found":"undetected",
+"isProvisioned":false,
+"present":"no",
+"sinceLastContact":63.503999999999998,
+"tid":43
+},
+~~~
+
+This is an example of the information provided about a Nymi Band that has left the area recently.
+
+In this case the Nymi Band is undetected and not present. The `sinceLastContact` property indicates that the Nymi Band was last detected 63.503999999999998 seconds ago. Based on these three factors, this Nymi Band is gone.
+
+Let's take a look at another example:
+
+~~~cpp
+{
+"RSSI_last":-72,
+"RSSI_smoothed":-70.775290219244226,
+"commandQueue":[],
+"firmwareVersion":"unknown",
+"found":"authenticated",
+"isProvisioned":true,
+"present":"yes",
+"provisioned":
+	{
+	"authenticationWindowRemaining":59.895000000000003,
+	"commandsQueued":0,
+	"enabledCDF":false,
+	"enabledRoamingAuthSetup":false,
+	"enabledSigning":false,
+	"enabledSymmetricKeys":false,
+	"enabledTOTP":false,
+	"pid":"7112e2a101fdfd78579d93a9cdc6938e"
+	},
+"sinceLastContact":0.10100000000000001,
+"tid":0
+},
+~~~
+
+This looks like a Nymi Band that is currently present (`present:yes`) and authenticated ('found:authenticated'). It is also provisioned (`isProvisioned:true`) to this NEA.
+
+~~~cpp
+"provisionMap":{"7112e2a101fdfd78579d93a9cdc6938e":0},
+"provisions":["7112e2a101fdfd78579d93a9cdc6938e","689d3d6478060a8d89621fd7c3fa464d","cf59afd11934cb7c4ffbea726ebbb12f","e5b228c6608b1ddb35b4af041b1c42d2","a75db153e5449e4a877c19a5d1653b23","ff3b312c6d4a99f65685f9866cd71199","031195eef335ee038049857dbc3cb74b","db228f414caaf81545126656eef2ce16","f99f96f9a82d0771e7fce3f76c94921d","5c9385b8baa112f729ac7d3b50bf136e","d00842c4f8545b0c572843f1a08f5111","e0030952361f1e56e57426226e8de782","0f15007c83db026935d4dabc2f46f795","af91e20f606229a9e4f4441f73628e0e","99a1f10601729b37da956ad774733049","ffcfa8dc0a0d5b06fbb35c0879a6c1ec","495fedacd327a0d2a1d7a12ec2c62b5a","939f0e8168765e56f9a92feafe30a5ac","23774092db4e8d6a96f32e7b1c1f2974"],
+"provisionsPresent":["7112e2a101fdfd78579d93a9cdc6938e"],
+"tidIndex":[0,null,1,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,3,null,null,null,null,null,null,null,4,null,5,null,null,6]
+~~~
+
+
+
+The `provisionMap` is a JSON object acting as a map from pids to indexes in the `nymiband` array. Use this instead of scanning the `nymiband` array for a specific provision.
+
+The `provisions` property is an array of all of the Nymi Bands provisioned with this NEA, identified by `pid`.
+
+The `provisionsPresent` is an array of the provisions that have been in the area recently. This is useful when looking for provisioned Nymi Bands to act on.
+
+The `tidIndex` is an array of the temporary ID numbers assigned to the Nymi Bands. 
+

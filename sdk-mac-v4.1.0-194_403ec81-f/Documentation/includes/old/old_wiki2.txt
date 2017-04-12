@@ -1,0 +1,37 @@
+Basics of the JSON Protocol
+
+In the v4.0 JSON API, a Nymi Enabled Application (NEA) is conceptually a websocket (WSS) client to a NAPI process that provides an HTTPS/WSS server. The NEA and the NAPI process pass JSON objects to each other over a WSS connection.
+
+The JSON API protocol is asynchronous.
+
+There are three general kinds of JSON objects: request, response, notification. The JSON objects are organised in exchanges. Exchanges can be simple request-response of short duration (for example, the info requests), permanent (such as notifications), or they can be complex with many JSON objects flowing in both directions (such as during provisioning). JSON objects can originate with the NEA or with the NAPI process.
+
+Exchanges are identified by an exchange property in the top level of the JSON object. The NEA creates the exchange, and it can be any unique string (for exmpale, a uuid). There are two predefined exchanges: '*provisioning*' and '*notifications*' that correspond to two long-lived exchanges of provisioning JSON objects and notifications.
+
+The JSON objects identify their purpose with two top level attributes op and subop. An op is something like 'info'. The most common values for subop are 'run' and 'get'. When the JSON object originates from the NEA, 'run' means perform this operation. If the JSON object originates from the NAPI process then 'run' indicates a simple response to the NEA request. A subop of 'get', if implemented for the specific op, is interpreted as a request for the current state or for an editable object that can be used with an op of 'run' to change the current state.
+
+There are two additional top level boolean properties of the JSON object that are set by the NAPI process: completed and successful. successful indicates the success or failure of the op in this exchange. completed indicates whether the current exchange is complete or not -- the NAPI process is indicating that it doesn't have anything more to add to this exchange. completed is never true when the exchange is '*provisioning*' or '*notifications*'.
+
+If there are parameters required for the op/subop, they are expected to be top level properties.
+
+The NAPI process ignores any properties that it does not recognise and, where possible, it carries those properties into its responses (this is not always possible, the internals of the NAPI process are also highly asynchronous and it may not know how to match its internal events with the specific JSON object that triggered them). One common technique is for the NEA to update the JSON object it receives with new information for the next step in a multi-step process. The result is an accumulation of the various steps into an object that seems to be passed back and forth between NEA and NAPI process.
+
+As an example, here is a request from the info sample app:
+
+{
+    "op" : "info",
+    "subop" : "get",
+    "devices" : true,
+    "exchange" : "exchange-1456399296204"
+}
+and the response (edited for clarity):
+
+{  
+   "completed" : true,
+   "exchange" : "exchange-1456399296204",
+   "op" : "info",
+   "subop" : "get",
+   "successful" : true
+}
+
+Note: In JSON, the order of the properties is arbitrary, and they can be reordered by any processor.

@@ -1,0 +1,540 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Nymi Developer Quick Start</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+	</style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="quickstart quickstart_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/nymidev.png" />
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc-footer2">
+		<ul class="toc-footer2">
+			<li id="link-main"><a href="http://downloads.nymi.com/sdkDoc/latest/index.html">Introduction</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/quickstart/">Developer Quick Start</a></li>
+			<li id="link-overview"><a href="http://downloads.nymi.com/sdkDoc/latest/overview/">Nymi API Overview</a></li>
+			<li id="link-json"><a href="http://downloads.nymi.com/sdkDoc/latest/json/">NAPI JSON Examples</a></li>
+			<li id="link-quickstart"><a href="http://downloads.nymi.com/sdkDoc/latest/background/">Nymi Background Concepts</a></li>
+		</ul>
+      </div>
+	  <div id="toc">
+	  </div>
+        <ul class="toc-footer">
+            <li><a href='https://support.nymi.com/hc/en-us/community/topics/'>Community</a></li>
+            <li><a href='http://www.nymi.com/dev/'>Developer Home</a></li>
+            <li><a href='../jsonreference/'>NAPI JSON Reference</a></li>
+            <li><a href='../napi-cpp/'>NAPI C++ Reference</a></li>
+            <li><a href='../napi-c/'>NAPI C Reference</a></li>
+        </ul>
+    </div>
+     <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="developer-quick-start">Developer Quick Start</h1>
+
+<p>Use Nymi’s SDK to develop Nymi-enabled applications (NEAs) for use with the Nymi Band. The SDK includes the Nymi API (NAPI), and the Nymulator (Nymi Band Simulator) to test your code without the need for a physical Nymi Band.</p>
+
+<p>The Nymi API 4.1 is provided as a dynamic library on Windows, and a framework installer on macOS. To demonstrate the functionality exposed through NAPI, we have provided a sample application (<code>apy</code>), which demonstrates how to provision a Nymi Band, how to obtain cryptographic assets from a provisioned Nymi Band, and several other functions. The sample app is an NEA written in Python.</p>
+
+<p>This Developer Quick Start walks you through the setup of the Python sample app, the initialization of NAPI, and the provisioning process. From there, you can investigate the provided code to explore the other functions.</p>
+
+<h3 id="supported-platforms">Supported Platforms</h3>
+
+<p>The Nymi SDK 4.1 currently supports the following platforms:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>OS</th>
+      <th>Supported Versions</th>
+      <th>Required Hardware</th>
+      <th>Recommended Developer Tools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#developing-on-os-x-platforms">Apple Mac OS</a></td>
+      <td>OS X Yosemite (10.10)</td>
+      <td>Bluetooth<sup>®</sup> Low Energy 4.0</td>
+      <td>Xcode 7.2.1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>OS X El Capitan (10.11)</td>
+      <td>Bluetooth<sup>®</sup> Smart Ready</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>macOS Sierra (10.12.2 or later)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><a href="#developing-on-windows-platforms">Microsoft Windows</a></td>
+      <td>Windows 10, 8.1, 7</td>
+      <td>BLED112 Bluetooth Smart Adapter</td>
+      <td>Visual Studio 2015</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>64 bit only</td>
+      <td>(required for, and included with, the Nymi Band)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">The sample app requires Python 3.6.0. Download Python for your platform from Python.org. </aside>
+
+<h3 id="contents-of-the-sdk-package">Contents of the SDK Package</h3>
+
+<p>The Nymi SDK package structure is as follows:</p>
+
+<ul>
+  <li>(sdk4.1) .zip/.tar
+    <ul>
+      <li>API</li>
+      <li>Documentation</li>
+      <li>NymiBluetoothService (Windows OS only)</li>
+      <li>Nymulator</li>
+      <li>LICENSE.txt</li>
+      <li>Release Notes</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="development-with-the-nymulator">Development with the Nymulator</h3>
+
+<p>You do not need a physical Nymi Band for NEA development. You can start developing immediately with the <a href="../background/#using-the-nymulator">Nymulator</a>, which simulates up to six Nymi Bands in a software environment.</p>
+
+<p>The Nymulator is <a href="#supported-platforms">supported</a> on the same OS X and Windows OS versions as the SDK.</p>
+
+<aside class="notice">
+This Quick Start describes how to get started with the Nymi API and the Nymulator. We recommend following this process before working with a physical Nymi Band. 
+</aside>
+
+<p>The <a href="#development-with-a-nymi-band">Development with a Nymi Band</a> section describes the configuration changes required for running NAPI and the <code>apy</code> sample app against a physical Nymi Band.</p>
+
+<h2 id="developing-on-windows-platforms">Developing on Windows Platforms</h2>
+
+<ol>
+  <li>Download the SDK zip. The link below is a direct download. All files are available on GitHub®.
+    <ul>
+      <li><a href="http://github.com/Nymi/JSON-API/releases/">Windows SDK</a></li>
+    </ul>
+  </li>
+  <li>The Nymulator requires the Visual Studio Redistributable 2013 x86. If you do not already have the redistributable package installed, run <code>sdk4.1\Nymulator\vcredist_x86.exe</code>.
+<br /><br /></li>
+  <li>Clone or fork the <code>apy</code> sample app from the <code>Nymi/SampleApps/Python</code> GitHub repository. The link below opens in a new tab.
+    <ul>
+      <li><a href="http://github.com/Nymi/SampleApps/Python/">Sample app</a>
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>Copy the SDK zip file into the same directory as the sample app.
+<br /><br /></li>
+  <li>Start the Nymulator. The Nymulator must be running before you start the sample app, otherwise NAPI cannot be properly initalized.
+    <ol>
+      <li>Double-click the executable: <code>sdk4.1\Nymulator\Nymulator.exe</code>.</li>
+      <li>Make a note of the port number that the Nymulator is using. By default this is port <code>9088</code>. If this port is in use by another process, the Nymulator decrements the number and tries again until it finds an open port. 
+<br /><br /></li>
+    </ol>
+  </li>
+  <li>Open a command window in the sample app directory. 
+<br /><br /></li>
+  <li>At the command prompt, type: <code>python go.py</code>.
+<br /><br /></li>
+  <li>When prompted, type <code>y</code> to allow the sample app to copy required files.
+<br />
+The sample app is designed to prompt you for missing information and provide feedback on options where applicable. For example, if you try to run <code>python go.py</code> before starting the Nymulator, the following information is printed to the command window:
+<br /><br />
+Checking connectivity… done.<br />
+Failed to start, attempt: 1<br />
+Failed to start, attempt: 2<br />
+Failed to start, attempt: 3<br />
+Failed to start, attempt: 4<br />
+Failed to start, attempt: 5<br />
+Maybe check that the Nymulator is running.
+<br /><br /></li>
+  <li>In the Nymulator, click <strong>Add</strong> to create a virtual Nymi Band. When they are created, virtual Nymi Bands are authenticated, but not provisioned. 
+<br /><br /></li>
+  <li>
+    <p>Provision the Nymi Band. Provisioning is a one-time process that establishes a trusted relationship between the Nymi Band and a specific NEA running on a specific device. The Nymi Band initiates the process by generating a pattern that appears on the Nymi Band’s LEDs. This pattern is also computed independently by NAPI and sent to the NEA. The user wearing the Nymi Band must confirm that the patterns match.</p>
+
+    <p>The pattern appears on the Nymi Band graphic in the upper-right corner of the Nymulator. At the same time, the pattern also appears in the command window, where a plus sign (+) indicates an LED is ON, and a minus sign (-) indicates an LED is OFF. If the two patterns match, you accept the pattern as described in this procedure.</p>
+
+    <ol>
+      <li>In the Nymulator, click <strong>Begin Provisioning</strong>. A pattern appears on the Nymi Band graphic.</li>
+      <li>In the command window, the following message appears:<br />
+ <code>found a band to provision; pattern is</code>, followed by a series of 5 plus and/or minus signs<br /></li>
+      <li>Confirm that the pattern in the command window matches the one displayed in the Nymulator.</li>
+      <li>Type <code>y</code> to accept the pattern match.<br /></li>
+    </ol>
+  </li>
+</ol>
+
+<p>Success messages appear in the command window, and in the Nymulator Activity Log.</p>
+
+<p><strong>Note:</strong> An NEA must have explicit user agreement to provision a Nymi Band. An NEA must provide some way for the user to confirm the LED pattern displayed on their Nymi Band. The NEA can either: display the pattern to the user, and ask for confirmation that the displayed pattern matches that on the band, or ask the user to input the pattern on their band, and proceed if it matches the pattern sent to the NEA by NAPI. The first approach is more convenient for the user, while the second provides greater certainty.</p>
+
+<aside class="success">
+Congratulations! You have successfully provisioned a virtual Nymi Band. 
+</aside>
+
+<p>Now that the Nymi Band is provisioned, you can verify its authentication status, generate and obtain cryptographic assests, and more. These features are described in the <a href="../json/">NAPI JSON Examples</a> section.</p>
+
+<p>To start working with a physical Nymi Band, see the <a href="#development-with-a-nymi-band">Development with a Nymi Band</a> section, which describes the configuration changes required for running NAPI and the sample app against a physical Nymi Band.</p>
+
+<h2 id="developing-on-os-x-platforms">Developing on OS X Platforms</h2>
+
+<ol>
+  <li>Download the SDK zip. The link below is a direct download. All files are available on GitHub®.
+    <ul>
+      <li><a href="http://github.com/Nymi/JSON-API/releases/">Mac SDK</a>
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>Clone or fork the <code>apy</code> sample app from the <code>Nymi/SampleApps/Python</code> GitHub repository. The link below opens in a new tab.
+    <ul>
+      <li><a href="http://github.com/Nymi/SampleApps/Python/">Sample app</a>
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>Install the NAPI framework.
+    <ul>
+      <li>Run the <code>sdk4.1\API\framework_installer\NAPI_Installer.pkg</code>.
+Note: 
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>Start the Nymulator. The Nymulator must be running before you start the sample app, otherwise NAPI cannot be properly initalized.
+    <ol>
+      <li>Double-click the executable: <code>sdk4.1\Nymulator\Nymulator.exe</code>.</li>
+      <li>Make a note of the port number that the Nymulator is using. By default this is port <code>9088</code>. If this port is in use by another process, the Nymulator decrements the number and tries again until it finds an open port. 
+<br /><br /></li>
+    </ol>
+  </li>
+  <li>Open a Terminal window in the sample app directory. 
+<br /><br /></li>
+  <li>At the command prompt, type: <code>python go.py</code>
+<br /><br /></li>
+  <li>When prompted, type <code>y</code> to allow the sample app to copy required files.
+<br />
+The sample app is designed to prompt you for missing information and provide feedback on options where applicable. For example, if you try to run <code>go.py</code> before starting the Nymulator, the following information is printed to the command window:
+<br /><br />
+Checking connectivity… done.<br />
+Failed to start, attempt: 1<br />
+Failed to start, attempt: 2<br />
+Failed to start, attempt: 3<br />
+Failed to start, attempt: 4<br />
+Failed to start, attempt: 5<br />
+Maybe check that the Nymulator is running.
+<br /><br /></li>
+  <li>In the Nymulator, click <strong>Add</strong> to create a virtual Nymi Band. When they are created, virtual Nymi Bands are authenticated, but not provisioned. 
+<br /><br /></li>
+  <li>
+    <p>Provision the Nymi Band. Provisioning is a one-time process that establishes a trusted relationship between the Nymi Band and a specific NEA running on a specific device. The Nymi Band initiates the process by generating a pattern that appears on the Nymi Band’s LEDs. This pattern is also computed independently by NAPI and sent to the NEA. The user wearing the Nymi Band must confirm that the patterns match.</p>
+
+    <p>The pattern appears on the Nymi Band graphic in the upper-right corner of the Nymulator. At the same time, the pattern also appears in the terminal window, where a plus sign (+) indicates an LED is ON, and a minus sign (-) indicates an LED is OFF. If the two patterns match, you accept the pattern as described in this procedure.</p>
+
+    <ol>
+      <li>In the Nymulator, click <strong>Begin Provisioning</strong>. A pattern appears on the Nymi Band graphic.</li>
+      <li>In the command window, the following message appears:<br />
+ <code>found a band to provision; pattern is</code>, followed by a series of 5 plus and/or minus signs<br /></li>
+      <li>Confirm that the pattern in the command window matches the one displayed in the Nymulator.</li>
+      <li>Type <code>y</code> to accept the pattern match.<br /></li>
+    </ol>
+  </li>
+</ol>
+
+<p>Success messages appear in the console, and in the Nymulator Activity Log.</p>
+
+<p><strong>Note:</strong> An NEA must have explicit user agreement to provision a Nymi Band. An NEA must provide some way for the user to confirm the LED pattern displayed on their Nymi Band. The NEA can either: display the pattern to the user, and ask for confirmation that the displayed pattern matches that on the band, or ask the user to input the pattern on their band, and proceed if it matches the pattern sent to the NEA by NAPI. The first approach is more convenient for the user, while the second provides greater certainty.</p>
+
+<aside class="success">
+Congratulations! You have successfully provisioned a virtual Nymi Band.
+</aside>
+<p>Now that the Nymi Band is provisioned, you can verify its authentication status, generate and obtain cryptographic assests, and more. These features are described in the <a href="../json/">NAPI JSON Examples</a> section.</p>
+
+<p>To start working with a physical Nymi Band, see the <a href="#development-with-a-nymi-band">Development with a Nymi Band</a> section, which describes the configuration changes required for running NAPI and the sample app against a physical Nymi Band.</p>
+
+<h2 id="development-with-a-nymi-band">Development with a Nymi Band</h2>
+
+<p>This section assumes that you have worked through the <a href="#development-with-the-nymulator">Development with the Nymulator</a> section for your platform, and therefore you already have the SDK and sample app downloaded and configured. Remember that Nymi-enabled apps (NEAs) communicate only with <em>authenticated</em> Nymi Bands. Use the Nymi Band app to authenticate the Nymi Band before you use the sample app.</p>
+
+<p>To work with a physical Nymi Band, follow the appropriate procedure below.</p>
+
+<h3 id="for-windows-os">For Windows OS:</h3>
+
+<ol>
+  <li>Shut down the Nymulator.
+<br /><br /></li>
+  <li>Plug in the Bluetooth adapter (included in the box with your Nymi Band).
+<br /><br /></li>
+  <li>Install and enable the Nymi Bluetooth Service (included in <code>sdk4.1\NymiBluetoothService\</code>).
+<br /><br /></li>
+  <li>Quit any running instances of <code>apy</code>.
+<br /><br /></li>
+  <li>Run <code>python go.py --real</code>. The <code>--real</code> parameter tells the sample app to look for a Nymi Band instead of the Nymulator.
+<br /><br /></li>
+  <li>Tap the top sensor on your Nymi Band continuously until you see the provisioning pattern (that is, the lights flash in an outward pattern, from the center out to both sides). You can expect to see the pattern after four taps. 
+<br /><br /></li>
+  <li>Provision your Nymi Band.
+    <ol>
+      <li>Confirm that the light pattern in the command window matches the one displayed on your Nymi Band.</li>
+      <li>In the command window, type <code>y</code>.</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="for-macos--os-x">For macOS / OS X:</h3>
+
+<ol>
+  <li>Shut down the Nymulator.
+<br /><br /></li>
+  <li>Quit any running instances of <code>apy</code>.
+<br /><br /></li>
+  <li>Run <code>python go.py --real</code>. The <code>--real</code> parameter tells the sample app to look for a Nymi Band instead of the Nymulator.
+<br /><br /></li>
+  <li>Tap the top sensor on your Nymi Band continuously until you see the provisioning pattern (that is, the lights flash in an outward pattern, from the center out to both sides). You can expect to see the pattern after four taps. 
+<br /><br /></li>
+  <li>Provision your Nymi Band.
+    <ol>
+      <li>Confirm that the light pattern in the console matches the one displayed on your Nymi Band.</li>
+      <li>In the console, type <code>y</code>.</li>
+    </ol>
+  </li>
+</ol>
+
+<aside class="success">
+Congratulations! You have successfully provisioned a physical Nymi Band.
+</aside>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ul>
+  <li>Explore the functions defined in <code>apy</code>, such as <code>run_gauntlet</code>, which demonstrates requesting a random number, and basic roaming authentication.
+<!-- - Take a deeper dive into the features provided by the sample app in the [Sample App](../walkthrough/#sample-app-walkthrough)--></li>
+  <li>Review the <a href="../background/#nymi-api-concepts">NAPI Background Concepts</a></li>
+  <li>Review the <a href="../jsonreference/">NAPI JSON reference pages</a>, <a href="../napi-cpp/">NAPI C++ Reference</a>, or <a href="../napi-c/">NAPI C Reference</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

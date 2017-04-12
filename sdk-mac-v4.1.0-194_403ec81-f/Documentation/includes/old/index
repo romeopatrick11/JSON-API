@@ -1,0 +1,97 @@
+<h1 id="nymi-api-reference">Nymi API Reference</h1>
+
+<h2 id="sample-application-walkthrough">Sample Application Walkthrough</h2>
+
+<p>The SDK contains the following:
+* Nymi API header file: <code>/API/include/json-napi.h</code>
+* Nymi API (NAPI), as an in-process library: 
+	* for Windows OS: <code>/API/lib/../napi-net.lib</code>
+	* for Mac OS X: <code>/API/lib/libnapi.a</code></p>
+
+<p>The C/C++ sample app (<code>NapiCpp</code>) is essentially a wrapper that includes functions that take the place of generating JSON constructs. This simplifies the construction and abstraction of JSON messages.</p>
+
+<p>In the sample app, the NEA is represented by the main.cpp file. You can use this file as an example for writing your own NEA. The terminal/command window that opens when you run <code>NapiCpp.exe</code> provides an interface for visualizing input and output of commands.</p>
+
+<p>The <code>Listener.cpp</code> file does most of the work of waiting for and receiving calls between the NEA and the</p>
+
+<p>The <code>json-napi.h</code> header file can be considered in two sections:<br /></p>
+<ul><li>The top half of the file consists of the functions called by the NEA when a Nymi Band returns values to the API.</li>
+<li>The bottom half of the file consists of the commands that the NEA sends to the Nymi Band through the API.</li>
+</ul>
+
+<aside class="notice"> 
+This walkthrough assumes that you have started the Nymulator and it is running, as described in step 5 of the [Developer Quick Start](#developer-quick-start) for your platform. 
+</aside>
+
+<h3 id="step-1-initialize-napi">Step 1: Initialize NAPI</h3>
+
+<p>Before an NEA can send commands to the Nymi Band, it must first initialize the API. In the C++ sample app, this is done automatically when you run <code>NapiCpp.exe</code>.</p>
+
+<p>A call is made to <code>ConfigOutcome</code> in <code>json-napi.h</code>.</p>
+
+<pre class="highlight plaintext"><code>	static NymiApi *getNymiApi(nymi::ConfigOutcome &amp;initResult, errorCallback onError, std::string rootDirectory, int logLevel = 0, int nymulatorPort = -1, std::string nymulatorHost = "");
+</code></pre>
+
+<h1 id="in-json-napi-the-following-code-is-used">In json-napi, the following code is used:</h1>
+<pre class="highlight json"><code><span class="err">inline</span><span class="w"> </span><span class="err">std::string</span><span class="w"> </span><span class="err">get_init()</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="err">nljson</span><span class="w"> </span><span class="err">j;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"path"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"init/get"</span><span class="err">;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"exchange"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"*init*"</span><span class="err">;</span><span class="w">
+	</span><span class="err">return</span><span class="w"> </span><span class="err">j.dump();</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p><br />
+After the API is initialized, the sample app uses a series of put and get commands (<code>JsonPutOutcome</code> and <code>JsonGetOutcome</code>) to send messages to and from the Nymi Band.</p>
+
+<aside class="warning"> You must call the functions in the correct order. If called in the wrong order, the API generates errors due to conflicts in thread order. </aside>
+
+<p>The NEA always initiates the communication with the Nymi Band.</p>
+
+<p><strong>Tip:</strong> If interpreted as a client-server model, the Nymi Band is a server and the NEA is a client. In Bluetooth<sup>®</sup> wireless terminology, the Nymi Band is a peripheral device and the NEA is a central device.</p>
+
+<h3 id="step-2-provision-a-nymi-band">STEP 2: Provision a Nymi Band</h3>
+
+<p>This step assumes that the user has clasped their Nymi Band and authenticated to the Nymi Band app. If you are developing against a Nymulator, the Nymulator automatically puts the virtual Nymi Band in an authenticated state, ready for provisioning.</p>
+
+<p>The <em>one-time</em> process of provisioning is initiated by the Nymi Band, and agreed upon mutually by the NEA and the Nymi Band. The process entails a cryptographic key exchange, that allows both parties to securely identify each other and communicate in future sessions.</p>
+
+<p><br /></p>
+
+<h4 id="start-provisioning">Start provisioning</h4>
+
+<pre class="highlight json"><code><span class="err">inline</span><span class="w"> </span><span class="err">std::string</span><span class="w"> </span><span class="err">start_prov()</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="err">nljson</span><span class="w"> </span><span class="err">j;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"path"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"provision/run/start"</span><span class="err">;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"exchange"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"*provisioning*"</span><span class="err">;</span><span class="w">
+	</span><span class="err">return</span><span class="w"> </span><span class="err">j.dump();</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="accept-pattern">Accept Pattern</h4>
+
+<pre class="highlight json"><code><span class="err">inline</span><span class="w"> </span><span class="err">std::string</span><span class="w"> </span><span class="err">accept_pattern(std::string</span><span class="w"> </span><span class="err">pattern)</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+	</span><span class="err">nljson</span><span class="w"> </span><span class="err">j;</span><span class="w">
+    </span><span class="err">j[</span><span class="nt">"path"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"provision/pattern"</span><span class="err">;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"exchange"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"*provisioning*"</span><span class="err">;</span><span class="w">
+    </span><span class="err">j[</span><span class="nt">"request"</span><span class="err">][</span><span class="nt">"pattern"</span><span class="err">]=pattern;</span><span class="w">
+    </span><span class="err">j[</span><span class="nt">"request"</span><span class="err">][</span><span class="nt">"action"</span><span class="err">]=</span><span class="nt">"accept"</span><span class="err">;</span><span class="w">
+	</span><span class="err">return</span><span class="w"> </span><span class="err">j.dump();</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="stop-provisioning">Stop Provisioning</h4>
+<pre class="highlight json"><code><span class="err">inline</span><span class="w"> </span><span class="err">std::string</span><span class="w"> </span><span class="err">stop_prov()</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+	</span><span class="err">nljson</span><span class="w"> </span><span class="err">j;</span><span class="w">
+    </span><span class="err">j[</span><span class="nt">"path"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"provision/run/stop"</span><span class="err">;</span><span class="w">
+	</span><span class="err">j[</span><span class="nt">"exchange"</span><span class="err">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="nt">"*provisioning*"</span><span class="err">;</span><span class="w">
+	</span><span class="err">return</span><span class="w"> </span><span class="err">j.dump();</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>A successfully provisioned Nymi Band has pid - provision ID. This value never changes. The pid is primarily useful for development. (why?)</p>
+
+<h3 id="step-3-get-device-information">Step 3: Get Device Information</h3>
+
