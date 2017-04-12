@@ -10,22 +10,22 @@ This release contains significant improvements and functionality changes. NEA de
 
 * Provision management has been restructured so that NEAs are now responsible for managing the provision data. The `provisions.json` file has been deprecated. There is provision management functionality that allows the NEA to add and remove provisions from consideration without restarting. Provide the saved provision data to NAPI as part of the call to `napi::configure`. 
 
-For details, see the [documentation](TBD).
+For details, see the [documentation](https://downloads.nymi.com/sdkDoc/latest/).
 
 * C++/C entry points have been renamed to simplify and standardize the interface.
     For example:
     OLD: `nymi:jsonNapiGet`
     NEW: `napi:get`
 
-For details, see the [documentation](TBD).
+For details, see the [documentation](https://downloads.nymi.com/sdkDoc/latest/).
 
 * The config.json file has been removed. Configuration options are now provided in the call to `napi::configure`.
 
 * The `operation` field has been removed from JSON exchanges.
 
-* NAPI for Windows is now available as a dynamic library. For details, see the [documentation](TBD).
+* NAPI for Windows is now available as a dynamic library. For details, see the [documentation](https://downloads.nymi.com/sdkDoc/latest/).
 
-* NAPI for Mac is now available as a framework. For details, see the [documentation](TBD).
+* NAPI for Mac is now available as a framework. For details, see the [documentation](https://downloads.nymi.com/sdkDoc/latest/).
 
 * The SDK is now supported on macOS Sierra **10.12.2 or later**. 
    Note: Version 10.12.0 and 10.12.1 are NOT supported. 
