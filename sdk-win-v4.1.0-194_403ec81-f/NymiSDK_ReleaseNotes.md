@@ -1,6 +1,6 @@
-# Nymi SDK 4.1 - DRAFT RELEASE NOTES
+# Nymi SDK 4.1
 
-Release Date: March 31, 2017
+Release Date: April 12, 2017
 
 ## Release Overview
 
